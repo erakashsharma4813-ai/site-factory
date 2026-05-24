@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Annu's Dental Care | Vijay Nagar, Indore</title>
+  <meta name="description" content="Dr. Annu's Dental Care — trusted dental clinic in Vijay Nagar, Indore. Root canal, implants, braces, whitening. 5.0★ rated. Book on WhatsApp." />
+
+  <!-- Google Fonts — SRI not applicable; response varies by browser/region -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous" />
+  <!-- Font Awesome 6.5.0 -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- React 18.2.0 production build -->
+  <script
+    src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"
+    integrity="sha384-tMH8h3BGESGckSAVGZ82T9n90ztNXxvdwvdM6UoR56cYcf+0iGXBliJ29D+wZ/x8"
+    crossorigin="anonymous"
+  ></script>
+  <!-- ReactDOM 18.2.0 production build -->
+  <script
+    src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"
+    integrity="sha384-bm7MnzvK++ykSwVJ2tynSE5TRdN+xL418osEVF2DE/L/gfWHj91J2Sphe582B1Bh"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Babel standalone 7.23.10 — client-side JSX transform for demo use -->
+  <script
+    src="https://unpkg.com/@babel/standalone@7.23.10/babel.min.js"
+    integrity="sha384-KCD0A3BqTNZfWlXJcL7fKzDri97vicyNr4NUIr0vX6K9PZ0X5hOTeEbFh99jPEST"
+    crossorigin="anonymous"
+  ></script>
+
+  <style>
+    /* ── VARIABLES ─────────────────────────────── */
+    :root {
+      --primary:    #1A5C6B;
+      --accent:     #C9973C;
+      --bg:         #FAF8F5;
+      --bg-alt:     #EEF6F8;
+      --text:       #1C1C1C;
+      --text-light: #5A6A6E;
+      --white:      #FFFFFF;
+      --gold:       #E8B84B;
+      --wa-green:   #25D366;
+    }
+
+    /* ── RESET ─────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) { body { padding-bottom: 58px; } }
+
+    /* ── PLACEHOLDER ───────────────────────────── */
+    .ph {
+      background: rgba(255,165,0,.14);
+      border: 1px dashed rgba(255,165,0,.55);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-style: italic;
+      opacity: .85;
+      display: inline-block;
+    }
+
+    /* ── LAYOUT ────────────────────────────────── */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── BUTTONS ───────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 13px 26px; border-radius: 6px;
+      font-family: 'Jost', sans-serif; font-weight: 600; font-size: 15px;
+      text-decoration: none; min-height: 48px;
+      transition: all .22s ease; white-space: nowrap; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: #144f5c; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,92,107,.25); }
+    .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+    .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+    /* ── SECTION HELPERS ───────────────────────── */
+    .sec-label {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 10px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 40px); font-weight: 700;
+      color: var(--text); margin-bottom: 14px;
+    }
+    .accent-rule { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 40px; }
+
+    /* ── HEADER ────────────────────────────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(26,92,107,.1);
+      box-shadow: 0 2px 16px rgba(26,92,107,.06);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .logo { text-decoration: none; display: flex; flex-direction: column; }
+    .logo-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--primary); line-height: 1.1; }
+    .logo-sub  { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); }
+
+    .desktop-nav { display: none; gap: 28px; align-items: center; }
+    .desktop-nav a { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 14px; color: var(--text); text-decoration: none; transition: color .2s; }
+    .desktop-nav a:hover { color: var(--primary); }
+    .nav-book { background: var(--primary) !important; color: var(--white) !important; padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; }
+    .nav-book:hover { background: #144f5c !important; }
+    @media (min-width: 769px) { .desktop-nav { display: flex; } }
+
+    .hamburger-btn {
+      display: flex; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .hamburger-btn span {
+      display: block; width: 22px; height: 2px;
+      background: var(--primary); border-radius: 2px; transition: all .3s;
+    }
+    @media (min-width: 769px) { .hamburger-btn { display: none; } }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed; top: 64px; left: 0; right: 0;
+      background: var(--white); padding: 12px 24px 20px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.1); z-index: 99;
+      transform: translateY(-110%); transition: transform .3s cubic-bezier(.4,0,.2,1);
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a {
+      display: block; padding: 13px 0;
+      font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 500;
+      color: var(--text); text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .mobile-menu a:last-child { border: none; }
+
+    /* ── HERO ──────────────────────────────────── */
+    .hero-section {
+      background: var(--bg);
+      padding: 64px 24px 56px;
+      min-height: calc(100vh - 64px);
+      display: flex; align-items: center;
+    }
+    .hero-inner {
+      max-width: 1180px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;
+    }
+    @media (min-width: 769px) { .hero-inner { grid-template-columns: 1fr 360px; gap: 60px; } }
+
+    .hero-text  { order: 2; }
+    .hero-visual { order: 1; display: flex; justify-content: center; }
+    @media (min-width: 769px) { .hero-text { order: 1; } .hero-visual { order: 2; justify-content: flex-end; } }
+
+    .hero-location {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 16px;
+    }
+    .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5.5vw, 56px); font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 18px; }
+    .hero-h1 em { font-style: italic; color: var(--primary); }
+    .hero-sub { font-size: 17px; color: var(--text-light); margin-bottom: 20px; font-weight: 400; }
+
+    .rating-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: 1px solid rgba(201,151,60,.35);
+      border-radius: 24px; padding: 6px 16px; margin-bottom: 28px;
+      font-family: 'Jost', sans-serif;
+    }
+    .rating-badge .stars { color: var(--gold); font-size: 13px; }
+    .rating-badge .score { font-weight: 700; font-size: 15px; color: var(--text); }
+    .rating-badge .count { font-size: 13px; color: var(--text-light); }
+    .rating-badge .src   { font-size: 11px; color: var(--text-light); border-left: 1px solid rgba(0,0,0,.1); padding-left: 8px; }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Doctor circle */
+    .doctor-circle {
+      border-radius: 50%;
+      background: linear-gradient(140deg, #daeef2 0%, #c0dde3 100%);
+      border: 4px solid var(--accent);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 8px 40px rgba(26,92,107,.15), 0 0 0 8px rgba(201,151,60,.08);
+      flex-shrink: 0;
+    }
+    .doctor-circle .dc-initials { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--primary); line-height: 1; }
+    .doctor-circle .dc-label   { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-top: 4px; }
+
+    /* ── ABOUT ─────────────────────────────────── */
+    .about-section { padding: 80px 24px; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+    @media (min-width: 769px) { .about-grid { grid-template-columns: 240px 1fr; } }
+    .about-photo { display: flex; justify-content: center; }
+    .about-text p { font-size: 16px; color: var(--text-light); line-height: 1.8; margin-bottom: 14px; }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .cred-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .cred-badge { background: var(--bg-alt); color: var(--primary); font-family: 'Jost', sans-serif; font-weight: 600; font-size: 13px; padding: 7px 16px; border-radius: 6px; border: 1px solid rgba(26,92,107,.15); }
+
+    /* ── SERVICES ──────────────────────────────── */
+    .services-section { padding: 80px 24px; background: var(--bg-alt); }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (min-width: 900px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+    .service-card {
+      background: var(--white); border-radius: 10px; padding: 24px 20px;
+      border-top: 3px solid var(--primary);
+      transition: all .25s ease;
+      box-shadow: 0 2px 8px rgba(26,92,107,.04);
+    }
+    .service-card:hover { transform: translateY(-4px); border-top-color: var(--accent); box-shadow: 0 8px 28px rgba(201,151,60,.15); }
+    .svc-icon {
+      width: 44px; height: 44px; background: rgba(26,92,107,.08);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 19px; color: var(--primary); margin-bottom: 14px;
+    }
+    .svc-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .svc-desc { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text-light); line-height: 1.55; }
+
+    /* ── TESTIMONIALS ──────────────────────────── */
+    .testimonials-section { padding: 80px 24px; background: var(--bg); }
+    .testi-scroll { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; -webkit-overflow-scrolling: touch; }
+    .testi-scroll::-webkit-scrollbar { height: 4px; }
+    .testi-scroll::-webkit-scrollbar-track { background: #eee; }
+    .testi-scroll::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+    @media (min-width: 769px) { .testi-scroll { display: grid; grid-template-columns: repeat(3, 1fr); overflow-x: unset; } }
+    .testi-card {
+      background: var(--white); border-radius: 12px; padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(26,92,107,.07); scroll-snap-align: start;
+      min-width: 280px; flex-shrink: 0;
+    }
+    @media (min-width: 769px) { .testi-card { min-width: unset; flex-shrink: unset; } }
+    .testi-quote { font-family: 'Playfair Display', serif; font-size: 52px; line-height: .8; color: var(--accent); margin-bottom: 12px; display: block; }
+    .testi-text  { font-size: 14px; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 18px; }
+    .testi-stars { color: var(--gold); font-size: 13px; margin-bottom: 8px; }
+    .testi-author { font-family: 'Jost', sans-serif; font-weight: 600; font-size: 13px; color: var(--primary); }
+
+    /* ── CONTACT ───────────────────────────────── */
+    .contact-section { padding: 80px 24px; background: var(--white); border-top: 3px solid var(--accent); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 769px) { .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .contact-detail { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+    .c-icon {
+      width: 38px; height: 38px; background: rgba(26,92,107,.08);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 15px; flex-shrink: 0; margin-top: 1px;
+    }
+    .c-info { font-size: 15px; color: var(--text); line-height: 1.6; }
+    .c-info a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .c-info a:hover { text-decoration: underline; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+    .hours-table td { padding: 6px 0; font-size: 14px; color: var(--text-light); border-bottom: 1px solid rgba(0,0,0,.05); }
+    .hours-table td:first-child { font-weight: 600; color: var(--text); width: 45%; }
+    .contact-ctas { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .contact-ctas .btn { justify-content: center; }
+    .map-wrap { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+    .map-wrap iframe { display: block; width: 100%; height: 360px; border: 0; }
+
+    /* ── FOOTER ────────────────────────────────── */
+    .site-footer { background: var(--primary); color: rgba(255,255,255,.75); padding: 36px 24px; text-align: center; }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .footer-address { font-size: 13px; margin-bottom: 4px; }
+    .footer-phone a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 14px; }
+    .footer-copy { font-size: 11px; opacity: .45; margin-top: 16px; }
+
+    /* ── STICKY MOBILE BAR ─────────────────────── */
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; display: flex; height: 58px; }
+    @media (min-width: 769px) { .sticky-bar { display: none; } }
+    .sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; color: var(--white); }
+    .sticky-wa   { background: var(--wa-green); }
+    .sticky-call { background: var(--primary); }
+
+    /* ── DESKTOP WA BUBBLE ─────────────────────── */
+    .wa-bubble {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 56px; height: 56px; background: var(--wa-green); border-radius: 50%;
+      display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45); z-index: 200;
+      text-decoration: none; transition: transform .2s;
+    }
+    .wa-bubble:hover { transform: scale(1.1); }
+    .wa-bubble svg { width: 28px; height: 28px; fill: white; }
+    @media (min-width: 769px) { .wa-bubble { display: flex; } }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    /* ── DATA ──────────────────────────────────── */
+    const WA_LINK = "https://wa.me/917470439339?text=Hi%2C%20I%20want%20to%20book%20an%20appointment%20at%20Dr%20Annu%27s%20Dental%20Care";
+    const TEL     = "tel:+917470439339";
+    const TEL_DISPLAY = "+91 74704 39339";
+
+    const SERVICES = [
+      { icon: "fa-teeth",        name: "Root Canal Treatment",  desc: "Gentle RCT to save your natural tooth. Most patients are surprised by how comfortable modern root canal treatment actually is." },
+      { icon: "fa-tooth",        name: "Dental Implants",       desc: "Permanent, natural-looking tooth replacements that restore both your bite and your confidence — built to last decades." },
+      { icon: "fa-align-center", name: "Braces & Aligners",     desc: "Traditional metal braces and clear aligner options for teenagers and adults. Straight teeth at any age, planned at your pace." },
+      { icon: "fa-star",         name: "Teeth Whitening",       desc: "Professional in-clinic whitening — noticeably brighter results after a single session, safely done under dental supervision." },
+      { icon: "fa-crown",        name: "Crowns & Bridges",      desc: "Precision-fitted porcelain crowns and bridges that restore damaged or missing teeth to full function and appearance." },
+      { icon: "fa-tint",         name: "Scaling & Polishing",   desc: "Thorough professional cleaning to remove tartar and plaque buildup — the single most important thing you can do for long-term gum health." },
+    ];
+
+    const REVIEWS = [
+      { text: "Visited for a root canal and was genuinely surprised — no pain, done in one sitting. Dr. Annu explained every step. Will not go elsewhere.", author: "Patient Name, Last Initial" },
+      { text: "My daughter had her braces done here. From consultation to removal, everything was seamless. Dr. Annu is extremely patient with anxious kids.", author: "Patient Name, Last Initial" },
+      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet — just a filling. That kind of integrity keeps you coming back.", author: "Patient Name, Last Initial" },
+    ];
+
+    /* ── COMPONENTS ────────────────────────────── */
+
+    function Placeholder({ children }) {
+      return <span className="ph">{children}</span>;
+    }
+
+    function DoctorCircle({ size = 200, fontSize = 52 }) {
+      return (
+        <div
+          className="doctor-circle"
+          style={{ width: size, height: size }}
+          role="img"
+          aria-label="Doctor photo placeholder — replace with Dr. Annu's photo"
+        >
+          <span className="dc-initials" style={{ fontSize }}>Dr. A</span>
+          <span className="dc-label">BDS</span>
+        </div>
+      );
+    }
+
+    function Header({ menuOpen, setMenuOpen }) {
+      return (
+        <>
+          <header className="site-header">
+            <div className="container header-inner">
+              <a href="#hero" className="logo">
+                <span className="logo-name">Dr. Annu's Dental Care</span>
+                <span className="logo-sub">Vijay Nagar · Indore</span>
+              </a>
+
+              <nav className="desktop-nav">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+                <a href={WA_LINK} className="nav-book" target="_blank" rel="noopener">
+                  Book Appointment
+                </a>
+              </nav>
+
+              <button
+                className="hamburger-btn"
+                onClick={() => setMenuOpen(o => !o)}
+                aria-label="Toggle navigation menu"
+                aria-expanded={menuOpen}
+              >
+                <span /><span /><span />
+              </button>
+            </div>
+          </header>
+
+          <div className={`mobile-menu ${menuOpen ? "open" : ""}`} role="navigation">
+            {[["#about","About Dr. Annu"],["#services","Services"],["#testimonials","Patient Reviews"],["#contact","Contact & Location"]].map(([href, label]) => (
+              <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
+            ))}
+            <a href={WA_LINK} target="_blank" rel="noopener"
+               onClick={() => setMenuOpen(false)}
+               style={{ color: "var(--primary)", fontWeight: 700 }}>
+              💬 Book via WhatsApp
+            </a>
+          </div>
+        </>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section id="hero" className="hero-section">
+          <div className="hero-inner">
+            <div className="hero-text">
+              <div className="hero-location">📍 Vijay Nagar, Indore</div>
+
+              <h1 className="hero-h1">
+                Dental care you can count on —{" "}
+                <em>right here in Vijay Nagar</em>
+              </h1>
+
+              <p className="hero-sub">
+                Dr. Annu, BDS · <Placeholder>[X] years of trusted practice</Placeholder>
+                {" "}· Right on Radisson Service Road
+              </p>
+
+              <div className="rating-badge" aria-label="5.0 star rating, 62 Justdial reviews">
+                <span className="stars">★★★★★</span>
+                <span className="score">5.0</span>
+                <span className="count">· 62 reviews</span>
+                <span className="src">Justdial</span>
+              </div>
+
+              <div className="hero-ctas">
+                <a href={WA_LINK} className="btn btn-primary" target="_blank" rel="noopener">
+                  💬 WhatsApp to Book
+                </a>
+                <a href={TEL} className="btn btn-outline">📞 Call Now</a>
+              </div>
+            </div>
+
+            <div className="hero-visual">
+              <DoctorCircle size={220} fontSize={54} />
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function About() {
+      return (
+        <section id="about" className="about-section">
+          <div className="container">
+            <div className="about-grid">
+              <div className="about-photo">
+                <DoctorCircle size={200} fontSize={48} />
+              </div>
+              <div className="about-text">
+                <div className="sec-label">Meet the Doctor</div>
+                <h2 className="sec-title">
+                  Dr. Annu <Placeholder>[Surname]</Placeholder>
+                </h2>
+                <div className="accent-rule" />
+
+                <p>
+                  <strong>Dr. Annu's Dental Care</strong> has been part of Vijay Nagar for{" "}
+                  <Placeholder>[X] years</Placeholder> — right behind the HP Petrol Pump on
+                  Radisson Service Road. The practice was built on a simple idea: Vijay Nagar
+                  residents deserve a dentist they can walk into, trust, and come back to.
+                </p>
+                <p>
+                  Dr. Annu holds a <strong>BDS</strong>{" "}
+                  <Placeholder>[and MDS in (specialisation) — confirm with doctor]</Placeholder>{" "}
+                  and has spent her career building the kind of practice where patients aren't
+                  rushed and every procedure is explained before it starts.
+                </p>
+                <p>
+                  <Placeholder>
+                    [Add a personal line from Dr. Annu — e.g. "I've treated three generations of some families here."]
+                  </Placeholder>
+                </p>
+
+                <div className="cred-badges">
+                  <span className="cred-badge">BDS <Placeholder>[/ MDS]</Placeholder></span>
+                  <span className="cred-badge"><Placeholder>[X]</Placeholder> Years Experience</span>
+                  <span className="cred-badge">Vijay Nagar, Indore</span>
+                  <span className="cred-badge">5.0 ★ · 62 Reviews</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Services() {
+      return (
+        <section id="services" className="services-section">
+          <div className="container">
+            <div className="sec-label">What We Offer</div>
+            <h2 className="sec-title">Treatments at Dr. Annu's</h2>
+            <div className="accent-rule" />
+
+            <div className="services-grid">
+              {SERVICES.map(({ icon, name, desc }) => (
+                <div className="service-card" key={name}>
+                  <div className="svc-icon">
+                    <i className={`fas ${icon}`} aria-hidden="true" />
+                  </div>
+                  <div className="svc-name">{name}</div>
+                  <div className="svc-desc">{desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Testimonials() {
+      return (
+        <section id="testimonials" className="testimonials-section">
+          <div className="container">
+            <div className="sec-label">Patient Voices</div>
+            <h2 className="sec-title">What Vijay Nagar says</h2>
+            <p style={{ color: "var(--text-light)", fontSize: 15, marginBottom: 8 }}>
+              5.0 ★ · 62 reviews on Justdial.{" "}
+              <Placeholder>[Replace these cards with real reviews from Dr. Annu]</Placeholder>
+            </p>
+            <div className="accent-rule" />
+
+            <div className="testi-scroll">
+              {REVIEWS.map(({ text, author }, i) => (
+                <div className="testi-card" key={i}>
+                  <span className="testi-quote" aria-hidden="true">"</span>
+                  <p className="testi-text">
+                    <Placeholder>[Real patient review]</Placeholder> {text}
+                  </p>
+                  <div className="testi-stars" aria-label="5 stars">★★★★★</div>
+                  <div className="testi-author">
+                    — <Placeholder>[{author}]</Placeholder>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Contact() {
+      return (
+        <section id="contact" className="contact-section">
+          <div className="container">
+            <div className="sec-label">Find Us</div>
+            <h2 className="sec-title">Visit Dr. Annu's Dental Care</h2>
+            <div className="accent-rule" />
+
+            <div className="contact-grid">
+              {/* Info */}
+              <div>
+                <div className="contact-detail">
+                  <div className="c-icon"><i className="fas fa-map-marker-alt" aria-hidden="true" /></div>
+                  <div className="c-info">
+                    Plot No. 5, Gangadevi Nagar,<br />
+                    Near HP Petrol Pump, Radisson Service Road,<br />
+                    Vijay Nagar, Indore – 452010
+                  </div>
+                </div>
+
+                <div className="contact-detail">
+                  <div className="c-icon"><i className="fas fa-phone-alt" aria-hidden="true" /></div>
+                  <div className="c-info">
+                    <a href={TEL}>{TEL_DISPLAY}</a>
+                  </div>
+                </div>
+
+                <div className="contact-detail">
+                  <div className="c-icon"><i className="fas fa-clock" aria-hidden="true" /></div>
+                  <div className="c-info">
+                    <table className="hours-table">
+                      <tbody>
+                        <tr>
+                          <td>Mon – Sat</td>
+                          <td>
+                            <Placeholder>[Opening time]</Placeholder> –{" "}
+                            <Placeholder>[Closing time]</Placeholder>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Sunday</td>
+                          <td><Placeholder>[Open / Closed — confirm]</Placeholder></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div className="contact-detail">
+                  <div className="c-icon" style={{ fontWeight: 700, fontSize: 13 }}>₹</div>
+                  <div className="c-info">
+                    Consultation: <Placeholder>[₹XXX — confirm with Dr. Annu]</Placeholder>
+                  </div>
+                </div>
+
+                <div className="contact-ctas">
+                  <a href={WA_LINK} className="btn btn-primary" target="_blank" rel="noopener">
+                    💬 Book via WhatsApp
+                  </a>
+                  <a href={TEL} className="btn btn-outline">
+                    📞 Call {TEL_DISPLAY}
+                  </a>
+                </div>
+              </div>
+
+              {/* Map */}
+              <div className="map-wrap">
+                <iframe
+                  src="https://maps.google.com/maps?q=Plot%20No.%205%2C%20Gangadevi%20Nagar%2C%20Near%20HP%20Petrol%20Pump%2C%20Vijay%20Nagar%2C%20Indore&output=embed"
+                  width="100%" height="360" style={{ border: 0 }}
+                  allowFullScreen loading="lazy"
+                  title="Dr. Annu's Dental Care — Vijay Nagar, Indore"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="site-footer">
+          <div className="container">
+            <div className="footer-name">Dr. Annu's Dental Care</div>
+            <p className="footer-address">
+              Plot No. 5, Gangadevi Nagar, Near HP Petrol Pump,<br />
+              Vijay Nagar, Indore – 452010
+            </p>
+            <p className="footer-phone">
+              <a href={TEL}>{TEL_DISPLAY}</a>
+            </p>
+            <p className="footer-copy">© 2025 Dr. Annu's Dental Care · All rights reserved.</p>
+          </div>
+        </footer>
+      );
+    }
+
+    function StickyBar() {
+      return (
+        <div className="sticky-bar" role="complementary" aria-label="Quick contact">
+          <a href={WA_LINK} className="sticky-wa" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a href={TEL} className="sticky-call">📞 Call Now</a>
+        </div>
+      );
+    }
+
+    function WhatsAppBubble() {
+      return (
+        <a href={WA_LINK} className="wa-bubble" target="_blank" rel="noopener"
+           aria-label="Chat with us on WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+      );
+    }
+
+    /* ── APP ────────────────────────────────────── */
+    function App() {
+      const [menuOpen, setMenuOpen] = useState(false);
+
+      // Close mobile menu on outside click
+      useEffect(() => {
+        function handleClick(e) {
+          const menu = document.querySelector('.mobile-menu');
+          const btn  = document.querySelector('.hamburger-btn');
+          if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+            setMenuOpen(false);
+          }
+        }
+        document.addEventListener('click', handleClick);
+        return () => document.removeEventListener('click', handleClick);
+      }, []);
+
+      return (
+        <>
+          <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <main>
+            <Hero />
+            <About />
+            <Services />
+            <Testimonials />
+            <Contact />
+          </main>
+          <Footer />
+          <StickyBar />
+          <WhatsAppBubble />
+        </>
+      );
+    }
+
+    /* ── MOUNT ──────────────────────────────────── */
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
