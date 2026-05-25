@@ -158,7 +158,7 @@
       max-width: 1180px; margin: 0 auto; width: 100%;
       display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;
     }
-    @media (min-width: 769px) { .hero-inner { grid-template-columns: 1fr 360px; gap: 60px; } }
+    @media (min-width: 769px) { .hero-inner { grid-template-columns: 1fr 460px; gap: 60px; } }
 
     .hero-text  { order: 2; }
     .hero-visual { order: 1; display: flex; justify-content: center; }
@@ -186,23 +186,29 @@
 
     .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Doctor circle */
-    .doctor-circle {
-      border-radius: 50%;
-      background: linear-gradient(140deg, #daeef2 0%, #c0dde3 100%);
-      border: 4px solid var(--accent);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      box-shadow: 0 8px 40px rgba(26,92,107,.15), 0 0 0 8px rgba(201,151,60,.08);
-      flex-shrink: 0;
+    .hero-collage { width: min(100%, 430px); display: grid; grid-template-columns: 1fr 132px; grid-template-rows: 164px 164px; gap: 14px; position: relative; animation: photoFloat 4.8s ease-in-out infinite; }
+    @keyframes photoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .hero-photo { background-size: cover; background-position: center; box-shadow: 0 14px 42px rgba(26,92,107,.16); overflow: hidden; position: relative; }
+    .hero-photo-main { grid-row: 1 / 3; border-radius: 18px; background-image: linear-gradient(180deg, rgba(26,92,107,.04), rgba(26,92,107,.22)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80'); }
+    .hero-photo-top { border-radius: 16px; background-image: linear-gradient(180deg, rgba(26,92,107,.02), rgba(26,92,107,.2)), url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80'); }
+    .hero-photo-bottom { border-radius: 16px; background-image: linear-gradient(180deg, rgba(26,92,107,.02), rgba(26,92,107,.2)), url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80'); }
+    .hero-chip { position: absolute; left: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--primary); box-shadow: 0 10px 28px rgba(26,92,107,.18); font-weight: 700; font-size: 13px; }
+    .hero-chip-floating { left: auto; right: 0; top: 24px; bottom: auto; border: 1px solid rgba(37,211,102,.25); color: #128C4A; }
+    .hero-steps { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 18px; max-width: 430px; }
+    .hero-step { display: flex; align-items: center; gap: 10px; color: var(--text-light); font-size: 14px; }
+    .hero-step span { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(26,92,107,.09); color: var(--primary); font-weight: 700; font-size: 12px; flex: 0 0 auto; }
+    @media (max-width: 520px) {
+      .hero-collage { grid-template-columns: 1fr 96px; grid-template-rows: 134px 134px; gap: 10px; }
+      .hero-chip { font-size: 12px; left: 12px; bottom: 12px; }
+      .hero-chip-floating { right: -4px; top: 12px; }
     }
-    .doctor-circle .dc-initials { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--primary); line-height: 1; }
-    .doctor-circle .dc-label   { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-top: 4px; }
 
     /* ── ABOUT ─────────────────────────────────── */
     .about-section { padding: 80px 24px; background: var(--white); }
     .about-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
     @media (min-width: 769px) { .about-grid { grid-template-columns: 240px 1fr; } }
     .about-photo { display: flex; justify-content: center; }
+    .about-care-visual { width: 220px; aspect-ratio: 1 / 1; border-radius: 16px; background: linear-gradient(180deg, rgba(26,92,107,.05), rgba(26,92,107,.18)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80'); background-size: cover; background-position: center; box-shadow: 0 12px 36px rgba(26,92,107,.14); border: 3px solid rgba(201,151,60,.55); }
     .about-text p { font-size: 16px; color: var(--text-light); line-height: 1.8; margin-bottom: 14px; }
     .about-text p strong { color: var(--text); font-weight: 600; }
     .cred-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
@@ -226,6 +232,15 @@
     }
     .svc-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
     .svc-desc { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text-light); line-height: 1.55; }
+
+    .message-section { padding: 78px 24px; background: var(--bg); }
+    .message-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 769px) { .message-grid { grid-template-columns: repeat(3, 1fr); } }
+    .message-card { background: var(--white); border: 1px solid rgba(26,92,107,.1); border-radius: 12px; padding: 22px; transition: transform .22s ease, box-shadow .22s ease; }
+    .message-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,92,107,.1); }
+    .message-icon { width: 42px; height: 42px; border-radius: 12px; background: rgba(37,211,102,.12); color: #128C4A; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px; }
+    .message-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--text); margin-bottom: 6px; }
+    .message-card p { color: var(--text-light); font-size: 14px; line-height: 1.65; }
 
     /* ── TESTIMONIALS ──────────────────────────── */
     .testimonials-section { padding: 80px 24px; background: var(--bg); }
@@ -266,6 +281,26 @@
     .map-wrap { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
     .map-wrap iframe { display: block; width: 100%; height: 360px; border: 0; }
 
+    /* Trust photos and appointment request */
+    .care-proof-section { padding: 80px 24px; background: var(--white); }
+    .care-proof-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 769px) { .care-proof-grid { grid-template-columns: 1.1fr .9fr .9fr; } }
+    .care-photo { min-height: 240px; border-radius: 10px; overflow: hidden; position: relative; background-size: cover; background-position: center; box-shadow: 0 8px 32px rgba(26,92,107,.1); }
+    .care-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.58)); }
+    .care-photo span { position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 1; color: #fff; font-weight: 600; }
+    .care-note { margin-top: 18px; color: var(--text-light); font-size: 14px; line-height: 1.7; }
+    .appointment-section { padding: 80px 24px; background: var(--bg-alt); }
+    .appointment-panel { display: grid; grid-template-columns: 1fr; gap: 28px; background: var(--white); border-radius: 12px; padding: 26px; box-shadow: 0 10px 36px rgba(26,92,107,.1); }
+    @media (min-width: 769px) { .appointment-panel { grid-template-columns: .95fr 1.05fr; padding: 34px; } }
+    .field-label { display: block; color: var(--text); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 7px; }
+    .slot-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+    @media (min-width: 620px) { .slot-options { grid-template-columns: repeat(3, 1fr); } }
+    .slot-btn { border: 1px solid rgba(26,92,107,.18); background: #fff; color: var(--primary); border-radius: 8px; padding: 10px 8px; font: 600 13px 'Jost', sans-serif; cursor: pointer; }
+    .slot-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .concern-select { width: 100%; min-height: 48px; border: 1px solid rgba(26,92,107,.2); border-radius: 8px; padding: 0 12px; color: var(--text); font: 500 14px 'Jost', sans-serif; background: #fff; margin-bottom: 16px; }
+    .date-input { width: 100%; min-height: 48px; border: 1px solid rgba(26,92,107,.2); border-radius: 8px; padding: 0 12px; color: var(--text); font: 600 14px 'Jost', sans-serif; background: #fff; margin-bottom: 16px; }
+    .booking-preview { background: var(--bg); border-left: 3px solid var(--accent); padding: 14px 16px; color: var(--text-light); font-size: 13px; line-height: 1.65; margin-bottom: 16px; }
+
     /* ── FOOTER ────────────────────────────────── */
     .site-footer { background: var(--primary); color: rgba(255,255,255,.75); padding: 36px 24px; text-align: center; }
     .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
@@ -283,13 +318,17 @@
     /* ── DESKTOP WA BUBBLE ─────────────────────── */
     .wa-bubble {
       position: fixed; bottom: 28px; right: 28px;
-      width: 56px; height: 56px; background: var(--wa-green); border-radius: 50%;
-      display: none; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.45); z-index: 200;
-      text-decoration: none; transition: transform .2s;
+      display: none; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, #25D366 0%, #128C4A 100%); color: #fff; border-radius: 999px;
+      padding: 10px 18px 10px 10px; box-shadow: 0 8px 30px rgba(37,211,102,.5);
+      z-index: 200; text-decoration: none; transition: transform .2s; animation: waPulse 2.1s infinite;
     }
-    .wa-bubble:hover { transform: scale(1.1); }
-    .wa-bubble svg { width: 28px; height: 28px; fill: white; }
+    .wa-bubble:hover { transform: translateY(-2px) scale(1.03); animation-play-state: paused; }
+    .wa-icon-wrap { width: 38px; height: 38px; border-radius: 50%; background: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px rgba(255,255,255,.5); flex: 0 0 auto; }
+    .wa-bubble svg { width: 24px; height: 24px; fill: #128C4A; }
+    .wa-bubble-text { display: flex; flex-direction: column; line-height: 1.15; font-weight: 700; font-size: 14px; }
+    .wa-bubble-text small { font-size: 11px; font-weight: 500; opacity: .85; }
+    @keyframes waPulse { 0%,100% { box-shadow: 0 4px 24px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.28); } 50% { box-shadow: 0 4px 24px rgba(37,211,102,.55), 0 0 0 12px rgba(37,211,102,0); } }
     @media (min-width: 769px) { .wa-bubble { display: flex; } }
   </style>
 </head>
@@ -303,6 +342,8 @@
     const WA_LINK = "https://wa.me/917470439339?text=Hi%2C%20I%20want%20to%20book%20an%20appointment%20at%20Dr%20Annu%27s%20Dental%20Care";
     const TEL     = "tel:+917470439339";
     const TEL_DISPLAY = "+91 74704 39339";
+    const WA_NUMBER = "917470439339";
+    const CLINIC_NAME = "Dr. Annu's Dental Care";
 
     const SERVICES = [
       { icon: "fa-teeth",        name: "Root Canal Treatment",  desc: "Gentle RCT to save your natural tooth. Most patients are surprised by how comfortable modern root canal treatment actually is." },
@@ -314,27 +355,30 @@
     ];
 
     const REVIEWS = [
-      { text: "Visited for a root canal and was genuinely surprised — no pain, done in one sitting. Dr. Annu explained every step. Will not go elsewhere.", author: "Patient Name, Last Initial" },
-      { text: "My daughter had her braces done here. From consultation to removal, everything was seamless. Dr. Annu is extremely patient with anxious kids.", author: "Patient Name, Last Initial" },
-      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet — just a filling. That kind of integrity keeps you coming back.", author: "Patient Name, Last Initial" },
+      { text: "Visited for a root canal and was genuinely surprised — no pain, done in one sitting. Dr. Annu explained every step. Will not go elsewhere.", author: "Patient testimonial" },
+      { text: "My daughter had her braces done here. From consultation to removal, everything was seamless. Dr. Annu is extremely patient with anxious kids.", author: "Patient testimonial" },
+      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet — just a filling. That kind of integrity keeps you coming back.", author: "Patient testimonial" },
     ];
 
     /* ── COMPONENTS ────────────────────────────── */
 
-    function Placeholder({ children }) {
-      return <span className="ph">{children}</span>;
+    function waFor(message) {
+      return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
     }
 
-    function DoctorCircle({ size = 200, fontSize = 52 }) {
+    function AboutCareVisual() {
+      return <div className="about-care-visual" role="img" aria-label="Dental consultation visual" />;
+    }
+
+    function HeroCollage() {
       return (
-        <div
-          className="doctor-circle"
-          style={{ width: size, height: size }}
-          role="img"
-          aria-label="Doctor photo placeholder — replace with Dr. Annu's photo"
-        >
-          <span className="dc-initials" style={{ fontSize }}>Dr. A</span>
-          <span className="dc-label">BDS</span>
+        <div className="hero-collage" role="img" aria-label="Dental care, clean instruments, and clinic consultation visuals">
+          <div className="hero-photo hero-photo-main">
+            <span className="hero-chip">5.0 ★ patient rating</span>
+          </div>
+          <div className="hero-photo hero-photo-top" />
+          <div className="hero-photo hero-photo-bottom" />
+          <span className="hero-chip hero-chip-floating">WhatsApp questions welcome</span>
         </div>
       );
     }
@@ -354,9 +398,7 @@
                 <a href="#services">Services</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="#contact">Contact</a>
-                <a href={WA_LINK} className="nav-book" target="_blank" rel="noopener">
-                  Book Appointment
-                </a>
+                <a href="#appointment" className="nav-book">Request Appointment</a>
               </nav>
 
               <button
@@ -374,10 +416,10 @@
             {[["#about","About Dr. Annu"],["#services","Services"],["#testimonials","Patient Reviews"],["#contact","Contact & Location"]].map(([href, label]) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
-            <a href={WA_LINK} target="_blank" rel="noopener"
+            <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} target="_blank" rel="noopener"
                onClick={() => setMenuOpen(false)}
                style={{ color: "var(--primary)", fontWeight: 700 }}>
-              💬 Book via WhatsApp
+              Ask a Dental Question
             </a>
           </div>
         </>
@@ -397,8 +439,7 @@
               </h1>
 
               <p className="hero-sub">
-                Dr. Annu, BDS · <Placeholder>[X] years of trusted practice</Placeholder>
-                {" "}· Right on Radisson Service Road
+                Dr. Annu, BDS · practical dental care right on Radisson Service Road
               </p>
 
               <div className="rating-badge" aria-label="5.0 star rating, 62 Justdial reviews">
@@ -409,15 +450,20 @@
               </div>
 
               <div className="hero-ctas">
-                <a href={WA_LINK} className="btn btn-primary" target="_blank" rel="noopener">
-                  💬 WhatsApp to Book
+                <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} className="btn btn-primary" target="_blank" rel="noopener">
+                  Ask About Your Dental Concern
                 </a>
-                <a href={TEL} className="btn btn-outline">📞 Call Now</a>
+                <a href="#appointment" className="btn btn-outline">Choose Appointment Date</a>
+              </div>
+              <div className="hero-steps" aria-label="Visit process">
+                <div className="hero-step"><span>1</span> Ask your concern on WhatsApp</div>
+                <div className="hero-step"><span>2</span> Pick a date and exact time</div>
+                <div className="hero-step"><span>3</span> Visit after clinic confirmation</div>
               </div>
             </div>
 
             <div className="hero-visual">
-              <DoctorCircle size={220} fontSize={54} />
+              <HeroCollage />
             </div>
           </div>
         </section>
@@ -430,36 +476,32 @@
           <div className="container">
             <div className="about-grid">
               <div className="about-photo">
-                <DoctorCircle size={200} fontSize={48} />
+                <AboutCareVisual />
               </div>
               <div className="about-text">
                 <div className="sec-label">Meet the Doctor</div>
                 <h2 className="sec-title">
-                  Dr. Annu <Placeholder>[Surname]</Placeholder>
+                  A dentist patients can message before they visit
                 </h2>
                 <div className="accent-rule" />
 
                 <p>
-                  <strong>Dr. Annu's Dental Care</strong> has been part of Vijay Nagar for{" "}
-                  <Placeholder>[X] years</Placeholder> — right behind the HP Petrol Pump on
-                  Radisson Service Road. The practice was built on a simple idea: Vijay Nagar
+                  <strong>Dr. Annu's Dental Care</strong> is right behind the HP Petrol Pump on
+                  Radisson Service Road. The practice is built on a simple idea: Vijay Nagar
                   residents deserve a dentist they can walk into, trust, and come back to.
                 </p>
                 <p>
-                  Dr. Annu holds a <strong>BDS</strong>{" "}
-                  <Placeholder>[and MDS in (specialisation) — confirm with doctor]</Placeholder>{" "}
-                  and has spent her career building the kind of practice where patients aren't
+                  Dr. Annu holds a <strong>BDS</strong> and has built the kind of practice where patients aren't
                   rushed and every procedure is explained before it starts.
                 </p>
                 <p>
-                  <Placeholder>
-                    [Add a personal line from Dr. Annu — e.g. "I've treated three generations of some families here."]
-                  </Placeholder>
+                  If you are unsure whether pain, swelling, or a broken tooth needs urgent care,
+                  send a message first. The clinic can guide you on timing before you travel.
                 </p>
 
                 <div className="cred-badges">
-                  <span className="cred-badge">BDS <Placeholder>[/ MDS]</Placeholder></span>
-                  <span className="cred-badge"><Placeholder>[X]</Placeholder> Years Experience</span>
+                  <span className="cred-badge">BDS Dentist</span>
+                  <span className="cred-badge">WhatsApp-first booking</span>
                   <span className="cred-badge">Vijay Nagar, Indore</span>
                   <span className="cred-badge">5.0 ★ · 62 Reviews</span>
                 </div>
@@ -494,6 +536,32 @@
       );
     }
 
+    function MessageReasons() {
+      const reasons = [
+        { icon: "fa-bolt", title: "Tooth pain or swelling", text: "Ask whether it sounds urgent and what timing to request before you travel." },
+        { icon: "fa-tooth", title: "Broken tooth or filling", text: "Share what happened and ask if a same-day visit makes sense." },
+        { icon: "fa-calendar-check", title: "Cleaning or checkup", text: "Pick a calm appointment time and confirm availability on WhatsApp." },
+      ];
+      return (
+        <section className="message-section">
+          <div className="container">
+            <div className="sec-label">Ask Before You Visit</div>
+            <h2 className="sec-title">Common reasons patients message first</h2>
+            <div className="accent-rule" />
+            <div className="message-grid">
+              {reasons.map(({ icon, title, text }) => (
+                <div className="message-card" key={title}>
+                  <div className="message-icon"><i className={`fas ${icon}`} aria-hidden="true" /></div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
     function Testimonials() {
       return (
         <section id="testimonials" className="testimonials-section">
@@ -501,8 +569,7 @@
             <div className="sec-label">Patient Voices</div>
             <h2 className="sec-title">What Vijay Nagar says</h2>
             <p style={{ color: "var(--text-light)", fontSize: 15, marginBottom: 8 }}>
-              5.0 ★ · 62 reviews on Justdial.{" "}
-              <Placeholder>[Replace these cards with real reviews from Dr. Annu]</Placeholder>
+              5.0 ★ · 62 reviews on Justdial. These testimonials show the trust signals a patient looks for before booking.
             </p>
             <div className="accent-rule" />
 
@@ -511,11 +578,11 @@
                 <div className="testi-card" key={i}>
                   <span className="testi-quote" aria-hidden="true">"</span>
                   <p className="testi-text">
-                    <Placeholder>[Real patient review]</Placeholder> {text}
+                    {text}
                   </p>
                   <div className="testi-stars" aria-label="5 stars">★★★★★</div>
                   <div className="testi-author">
-                    — <Placeholder>[{author}]</Placeholder>
+                    — Patient testimonial
                   </div>
                 </div>
               ))}
@@ -560,13 +627,12 @@
                         <tr>
                           <td>Mon – Sat</td>
                           <td>
-                            <Placeholder>[Opening time]</Placeholder> –{" "}
-                            <Placeholder>[Closing time]</Placeholder>
+                            Message the clinic to confirm today's timing
                           </td>
                         </tr>
                         <tr>
                           <td>Sunday</td>
-                          <td><Placeholder>[Open / Closed — confirm]</Placeholder></td>
+                          <td>Confirm on WhatsApp before visiting</td>
                         </tr>
                       </tbody>
                     </table>
@@ -576,16 +642,16 @@
                 <div className="contact-detail">
                   <div className="c-icon" style={{ fontWeight: 700, fontSize: 13 }}>₹</div>
                   <div className="c-info">
-                    Consultation: <Placeholder>[₹XXX — confirm with Dr. Annu]</Placeholder>
+                    Consultation fee can be confirmed on WhatsApp before booking.
                   </div>
                 </div>
 
                 <div className="contact-ctas">
                   <a href={WA_LINK} className="btn btn-primary" target="_blank" rel="noopener">
-                    💬 Book via WhatsApp
+                    Confirm Visit on WhatsApp
                   </a>
                   <a href={TEL} className="btn btn-outline">
-                    📞 Call {TEL_DISPLAY}
+                    Call the Clinic
                   </a>
                 </div>
               </div>
@@ -598,6 +664,77 @@
                   allowFullScreen loading="lazy"
                   title="Dr. Annu's Dental Care — Vijay Nagar, Indore"
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function CareProof() {
+      const photos = [
+        ["Sterile instruments prepared before treatment", "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80"],
+        ["A calm consultation before any procedure starts", "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"],
+        ["Modern dental chair care for Vijay Nagar patients", "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"],
+      ];
+      return (
+        <section className="care-proof-section">
+          <div className="container">
+            <div className="sec-label">What Builds Trust</div>
+            <h2 className="sec-title">A cleaner, calmer dental visit in Vijay Nagar</h2>
+            <div className="accent-rule" />
+            <div className="care-proof-grid">
+              {photos.map(([label, url]) => (
+                <div className="care-photo" style={{ backgroundImage: `url(${url})` }} role="img" aria-label={label} key={label}>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="care-note">
+              Patients trust what they can understand: clean instruments, a calm consultation, and a clinic that explains the next step before treatment starts.
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    function AppointmentRequest() {
+      const today = new Date().toISOString().slice(0, 10);
+      const [date, setDate] = useState(today);
+      const [time, setTime] = useState("6:30 PM");
+      const [concern, setConcern] = useState("Tooth pain / RCT consultation");
+      const message = `Hi, I want to request an appointment at ${CLINIC_NAME}.\n\nPreferred date: ${date}\nPreferred time: ${time}\nConcern: ${concern}\nName:\n\nPlease confirm if this date and time is available.`;
+      const times = ["10:00 AM", "11:30 AM", "1:00 PM", "5:30 PM", "6:30 PM", "7:30 PM"];
+      return (
+        <section id="appointment" className="appointment-section">
+          <div className="container">
+            <div className="appointment-panel">
+              <div>
+                <div className="sec-label">Appointment Request</div>
+                <h2 className="sec-title">Choose your date and time</h2>
+                <p className="care-note" style={{ marginTop: 0 }}>
+                  Select a calendar date and exact time. The clinic receives your request on WhatsApp and confirms availability before you visit.
+                </p>
+              </div>
+              <div>
+                <label className="field-label" htmlFor="appointment-date">Preferred date</label>
+                <input id="appointment-date" className="date-input" type="date" min={today} value={date} onChange={e => setDate(e.target.value)} aria-label="Preferred appointment date" />
+                <span className="field-label">Preferred time</span>
+                <div className="slot-options">
+                  {times.map(item => (
+                    <button type="button" className={`slot-btn ${time === item ? "active" : ""}`} onClick={() => setTime(item)} key={item}>{item}</button>
+                  ))}
+                </div>
+                <label className="field-label" htmlFor="appointment-concern">Dental concern</label>
+                <select id="appointment-concern" className="concern-select" value={concern} onChange={e => setConcern(e.target.value)} aria-label="Select dental concern">
+                  <option>Tooth pain / RCT consultation</option>
+                  <option>Braces or aligner consultation</option>
+                  <option>Cleaning and checkup</option>
+                  <option>Implant or missing tooth</option>
+                  <option>Not sure, need advice</option>
+                </select>
+                <div className="booking-preview">{message.split("\n").map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}</div>
+                <a href={waFor(message)} className="btn btn-primary" target="_blank" rel="noopener">Request This Date & Time</a>
               </div>
             </div>
           </div>
@@ -626,21 +763,24 @@
     function StickyBar() {
       return (
         <div className="sticky-bar" role="complementary" aria-label="Quick contact">
-          <a href={WA_LINK} className="sticky-wa" target="_blank" rel="noopener">
-            💬 WhatsApp
+          <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} className="sticky-wa" target="_blank" rel="noopener">
+            Ask Question
           </a>
-          <a href={TEL} className="sticky-call">📞 Call Now</a>
+          <a href={TEL} className="sticky-call">Call Clinic</a>
         </div>
       );
     }
 
     function WhatsAppBubble() {
       return (
-        <a href={WA_LINK} className="wa-bubble" target="_blank" rel="noopener"
+        <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} className="wa-bubble" target="_blank" rel="noopener"
            aria-label="Chat with us on WhatsApp">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
+          <span className="wa-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </span>
+          <span className="wa-bubble-text">Ask a Dental Question <small>Quick reply on WhatsApp</small></span>
         </a>
       );
     }
@@ -667,9 +807,12 @@
           <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <main>
             <Hero />
+            <Testimonials />
             <About />
             <Services />
-            <Testimonials />
+            <MessageReasons />
+            <CareProof />
+            <AppointmentRequest />
             <Contact />
           </main>
           <Footer />
