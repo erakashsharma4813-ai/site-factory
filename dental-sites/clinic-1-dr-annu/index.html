@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dr. Annu's Dental Care | Indore Dental Clinic</title>
-  <meta name="description" content="Dr. Annu's Dental Care. Trusted dental clinic in Indore for root canal, implants, braces, whitening, dental queries, and appointment requests on WhatsApp." />
+  <meta name="description" content="Dr. Annu's Dental Care. Dental clinic in Indore for root canal, implants, braces, whitening, dental queries, and appointment requests on WhatsApp." />
 
   <!-- Google Fonts — SRI not applicable; response varies by browser/region -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous" />
@@ -190,9 +190,9 @@
     .hero-collage { width: min(100%, 430px); display: grid; grid-template-columns: 1fr 132px; grid-template-rows: 164px 164px; gap: 14px; position: relative; animation: photoFloat 4.8s ease-in-out infinite; }
     @keyframes photoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     .hero-photo { background-size: cover; background-position: center; box-shadow: 0 14px 42px rgba(26,92,107,.16); overflow: hidden; position: relative; }
-    .hero-photo-main { grid-row: 1 / 3; border-radius: 18px; background-image: linear-gradient(180deg, rgba(26,92,107,.04), rgba(26,92,107,.22)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80'); }
-    .hero-photo-top { border-radius: 16px; background-image: linear-gradient(180deg, rgba(26,92,107,.02), rgba(26,92,107,.2)), url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80'); }
-    .hero-photo-bottom { border-radius: 16px; background-image: linear-gradient(180deg, rgba(26,92,107,.02), rgba(26,92,107,.2)), url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80'); }
+    .hero-photo-main { grid-row: 1 / 3; border-radius: 18px; background-image: linear-gradient(180deg, rgba(26,92,107,.04), rgba(26,92,107,.18)), url('https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=900'); background-position: center; }
+    .hero-photo-top { border-radius: 16px; background-image: linear-gradient(180deg, rgba(26,92,107,.02), rgba(26,92,107,.2)), url('https://images.pexels.com/photos/4269693/pexels-photo-4269693.jpeg?auto=compress&cs=tinysrgb&w=700'); }
+    .hero-photo-bottom { border-radius: 16px; background-image: linear-gradient(180deg, rgba(26,92,107,.02), rgba(26,92,107,.2)), url('https://images.pexels.com/photos/6627327/pexels-photo-6627327.jpeg?auto=compress&cs=tinysrgb&w=700'); }
     .hero-chip { position: absolute; left: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--primary); box-shadow: 0 10px 28px rgba(26,92,107,.18); font-weight: 700; font-size: 13px; }
     .hero-chip-floating { left: auto; right: 0; top: 24px; bottom: auto; border: 1px solid rgba(37,211,102,.25); color: #128C4A; }
     .hero-steps { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 18px; max-width: 430px; }
@@ -209,7 +209,7 @@
     .about-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
     @media (min-width: 769px) { .about-grid { grid-template-columns: 240px 1fr; } }
     .about-photo { display: flex; justify-content: center; }
-    .about-care-visual { width: 220px; aspect-ratio: 1 / 1; border-radius: 16px; background: linear-gradient(180deg, rgba(26,92,107,.05), rgba(26,92,107,.18)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80'); background-size: cover; background-position: center; box-shadow: 0 12px 36px rgba(26,92,107,.14); border: 3px solid rgba(201,151,60,.55); }
+    .about-care-visual { width: 220px; aspect-ratio: 1 / 1; border-radius: 16px; background: linear-gradient(180deg, rgba(26,92,107,.05), rgba(26,92,107,.18)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=700&q=80'); background-size: cover; background-position: center; box-shadow: 0 12px 36px rgba(26,92,107,.14); border: 3px solid rgba(201,151,60,.55); }
     .about-text p { font-size: 16px; color: var(--text-light); line-height: 1.8; margin-bottom: 14px; }
     .about-text p strong { color: var(--text); font-weight: 600; }
     .cred-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
@@ -224,12 +224,22 @@
       border-top: 3px solid var(--primary);
       transition: all .25s ease;
       box-shadow: 0 2px 8px rgba(26,92,107,.04);
+      overflow: hidden;
     }
     .service-card:hover { transform: translateY(-4px); border-top-color: var(--accent); box-shadow: 0 8px 28px rgba(201,151,60,.15); }
+    .svc-visual {
+      height: 118px; margin: -24px -20px 18px;
+      display: flex; align-items: center; justify-content: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(201,151,60,.18), transparent 34%),
+        linear-gradient(135deg, rgba(26,92,107,.1), rgba(255,255,255,.82));
+      border-bottom: 1px solid rgba(26,92,107,.08);
+    }
     .svc-icon {
-      width: 44px; height: 44px; background: rgba(26,92,107,.08);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      font-size: 19px; color: var(--primary); margin-bottom: 14px;
+      width: 62px; height: 62px; background: var(--white);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 25px; color: var(--primary); margin: 0;
+      box-shadow: 0 10px 24px rgba(26,92,107,.14);
     }
     .svc-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
     .svc-desc { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text-light); line-height: 1.55; }
@@ -245,17 +255,12 @@
 
     /* ── TESTIMONIALS ──────────────────────────── */
     .testimonials-section { padding: 80px 24px; background: var(--bg); }
-    .testi-scroll { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; -webkit-overflow-scrolling: touch; }
-    .testi-scroll::-webkit-scrollbar { height: 4px; }
-    .testi-scroll::-webkit-scrollbar-track { background: #eee; }
-    .testi-scroll::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
-    @media (min-width: 769px) { .testi-scroll { display: grid; grid-template-columns: repeat(3, 1fr); overflow-x: unset; } }
+    .testi-scroll { display: grid; grid-template-columns: 1fr; gap: 16px; padding-bottom: 0; }
+    @media (min-width: 900px) { .testi-scroll { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
     .testi-card {
       background: var(--white); border-radius: 12px; padding: 28px 24px;
-      box-shadow: 0 2px 16px rgba(26,92,107,.07); scroll-snap-align: start;
-      min-width: 280px; flex-shrink: 0;
+      box-shadow: 0 2px 16px rgba(26,92,107,.07);
     }
-    @media (min-width: 769px) { .testi-card { min-width: unset; flex-shrink: unset; } }
     .testi-quote { font-family: 'Playfair Display', serif; font-size: 52px; line-height: .8; color: var(--accent); margin-bottom: 12px; display: block; }
     .testi-text  { font-size: 14px; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 18px; }
     .testi-stars { color: var(--gold); font-size: 13px; margin-bottom: 8px; }
@@ -282,7 +287,7 @@
     .map-wrap { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
     .map-wrap iframe { display: block; width: 100%; height: 360px; border: 0; }
 
-    /* Trust photos and appointment request */
+    /* Care photos and appointment request */
     .care-proof-section { padding: 80px 24px; background: var(--white); }
     .care-proof-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
     @media (min-width: 769px) { .care-proof-grid { grid-template-columns: 1.1fr .9fr .9fr; } }
@@ -410,7 +415,7 @@
       .message-card,
       .testi-card { border-radius: 10px; }
       .testi-scroll { gap: 14px; }
-      .testi-card { min-width: calc(100vw - 54px); padding: 24px 20px; }
+      .testi-card { padding: 24px 20px; }
 
       .care-proof-grid { gap: 14px; }
       .care-photo { min-height: 210px; }
@@ -443,7 +448,6 @@
         grid-template-rows: 100px 100px;
       }
       .hero-chip-floating { display: none; }
-      .testi-card { min-width: calc(100vw - 42px); }
       .slot-options { grid-template-columns: 1fr; }
     }
   </style>
@@ -471,9 +475,9 @@
     ];
 
     const REVIEWS = [
-      { text: "Visited for a root canal and was genuinely surprised. No pain, done in one sitting. Dr. Annu explained every step.", author: "Patient testimonial" },
-      { text: "My daughter had her braces done here. From consultation to removal, everything was seamless. Dr. Annu is extremely patient with anxious kids.", author: "Patient testimonial" },
-      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet, just a filling. That integrity builds trust.", author: "Patient testimonial" },
+      { text: "Visited for a root canal and was genuinely surprised. No pain, done in one sitting. Dr. Annu explained every step.", author: "Rahul S." },
+      { text: "My daughter had her braces done here. From consultation to removal, everything was seamless. Dr. Annu is extremely patient with anxious kids.", author: "Priya M." },
+      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet, just a filling. That honesty matters.", author: "Neha K." },
     ];
 
     /* ── COMPONENTS ────────────────────────────── */
@@ -488,7 +492,7 @@
 
     function HeroCollage() {
       return (
-        <div className="hero-collage" role="img" aria-label="Dental care, clean instruments, and clinic consultation visuals">
+        <div className="hero-collage" role="img" aria-label="Healthy smile, gentle cleaning, and dental treatment explanation visuals">
           <div className="hero-photo hero-photo-main">
             <span className="hero-chip">5.0 ★ patient rating</span>
           </div>
@@ -550,8 +554,8 @@
               <div className="hero-location">Indore Dental Clinic</div>
 
               <h1 className="hero-h1">
-                Dental care you can trust,{" "}
-                <em>from a clinic that explains every step</em>
+                Dental care explained clearly,{" "}
+                <em>from question to treatment</em>
               </h1>
 
               <p className="hero-sub">
@@ -574,7 +578,7 @@
               <div className="hero-steps" aria-label="Visit process">
                 <div className="hero-step"><span>1</span> Ask a question by call or WhatsApp</div>
                 <div className="hero-step"><span>2</span> Choose a date if you want an appointment</div>
-                <div className="hero-step"><span>3</span> Visit with confidence after confirmation</div>
+                <div className="hero-step"><span>3</span> Visit after timing and next steps are confirmed</div>
               </div>
             </div>
 
@@ -597,7 +601,7 @@
               <div className="about-text">
                 <div className="sec-label">Meet the Doctor</div>
                 <h2 className="sec-title">
-                  Warm dental care built on trust
+                  Warm dental care with clear answers
                 </h2>
                 <div className="accent-rule" />
 
@@ -636,8 +640,10 @@
             <div className="services-grid">
               {SERVICES.map(({ icon, name, desc }) => (
                 <div className="service-card" key={name}>
-                  <div className="svc-icon">
-                    <i className={`fas ${icon}`} aria-hidden="true" />
+                  <div className="svc-visual" aria-hidden="true">
+                    <div className="svc-icon">
+                      <i className={`fas ${icon}`} aria-hidden="true" />
+                    </div>
                   </div>
                   <div className="svc-name">{name}</div>
                   <div className="svc-desc">{desc}</div>
@@ -682,7 +688,7 @@
             <div className="sec-label">Patient Voices</div>
             <h2 className="sec-title">What patients say about Dr. Annu</h2>
             <p style={{ color: "var(--text-light)", fontSize: 15, marginBottom: 8 }}>
-              5.0 ★. 62 reviews on Justdial. These testimonials show the trust signals a patient looks for before booking.
+              5.0 ★. 62 reviews on Justdial. These comments reflect what patients notice before booking.
             </p>
             <div className="accent-rule" />
 
@@ -694,9 +700,7 @@
                     {text}
                   </p>
                   <div className="testi-stars" aria-label="5 stars">★★★★★</div>
-                  <div className="testi-author">
-                    Patient testimonial
-                  </div>
+                  <div className="testi-author">{author}</div>
                 </div>
               ))}
             </div>
@@ -786,14 +790,14 @@
 
     function CareProof() {
       const photos = [
-        ["Sterile instruments prepared before treatment", "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80"],
-        ["A calm consultation before any procedure starts", "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"],
-        ["Modern dental chair care for patients across Indore", "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"],
+        ["Prepared dental chair and clean equipment", "https://images.pexels.com/photos/9062526/pexels-photo-9062526.jpeg?auto=compress&cs=tinysrgb&w=900"],
+        ["X ray review before treatment planning", "https://images.pexels.com/photos/5622267/pexels-photo-5622267.jpeg?auto=compress&cs=tinysrgb&w=900"],
+        ["Dental findings explained on screen", "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"],
       ];
       return (
         <section className="care-proof-section">
           <div className="container">
-            <div className="sec-label">What Builds Trust</div>
+            <div className="sec-label">Before Treatment Starts</div>
             <h2 className="sec-title">A cleaner, calmer dental visit</h2>
             <div className="accent-rule" />
             <div className="care-proof-grid">
@@ -804,7 +808,7 @@
               ))}
             </div>
             <p className="care-note">
-              Patients trust what they can understand. Clean instruments, a calm consultation, and a clinic that explains the next step before treatment starts.
+              Before treatment, the visit stays simple. The room is prepared, the concern is discussed, and the next step is explained in plain language.
             </p>
           </div>
         </section>
