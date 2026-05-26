@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Annu's Dental Care | Vijay Nagar, Indore</title>
-  <meta name="description" content="Dr. Annu's Dental Care — trusted dental clinic in Vijay Nagar, Indore. Root canal, implants, braces, whitening. 5.0★ rated. Book on WhatsApp." />
+  <title>Dr. Annu's Dental Care | Indore Dental Clinic</title>
+  <meta name="description" content="Dr. Annu's Dental Care. Trusted dental clinic in Indore for root canal, implants, braces, whitening, dental queries, and appointment requests on WhatsApp." />
 
   <!-- Google Fonts — SRI not applicable; response varies by browser/region -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous" />
@@ -316,6 +316,8 @@
     .sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; color: var(--white); }
     .sticky-wa   { background: var(--wa-green); }
     .sticky-call { background: var(--primary); }
+    .sticky-wa i { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #128C4A; display: inline-flex; align-items: center; justify-content: center; font-size: 19px; box-shadow: 0 0 0 0 rgba(255,255,255,.45); animation: stickyWaPulse 1.8s ease-in-out infinite; }
+    @keyframes stickyWaPulse { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,.42); } 50% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(255,255,255,0); } }
 
     /* ── DESKTOP WA BUBBLE ─────────────────────── */
     .wa-bubble {
@@ -461,17 +463,17 @@
 
     const SERVICES = [
       { icon: "fa-teeth",        name: "Root Canal Treatment",  desc: "Gentle RCT to save your natural tooth. Most patients are surprised by how comfortable modern root canal treatment actually is." },
-      { icon: "fa-tooth",        name: "Dental Implants",       desc: "Permanent, natural-looking tooth replacements that restore both your bite and your confidence — built to last decades." },
+      { icon: "fa-tooth",        name: "Dental Implants",       desc: "Permanent tooth replacements that look natural, restore your bite, and are planned for long term comfort." },
       { icon: "fa-align-center", name: "Braces & Aligners",     desc: "Traditional metal braces and clear aligner options for teenagers and adults. Straight teeth at any age, planned at your pace." },
-      { icon: "fa-star",         name: "Teeth Whitening",       desc: "Professional in-clinic whitening — noticeably brighter results after a single session, safely done under dental supervision." },
-      { icon: "fa-crown",        name: "Crowns & Bridges",      desc: "Precision-fitted porcelain crowns and bridges that restore damaged or missing teeth to full function and appearance." },
-      { icon: "fa-tint",         name: "Scaling & Polishing",   desc: "Thorough professional cleaning to remove tartar and plaque buildup — the single most important thing you can do for long-term gum health." },
+      { icon: "fa-star",         name: "Teeth Whitening",       desc: "Professional whitening at the clinic. Brighter results after a single session, done under dental supervision." },
+      { icon: "fa-crown",        name: "Crowns & Bridges",      desc: "Well fitted porcelain crowns and bridges that restore damaged or missing teeth to full function and appearance." },
+      { icon: "fa-tint",         name: "Scaling & Polishing",   desc: "Thorough professional cleaning to remove tartar and plaque buildup. A simple step that supports healthier gums." },
     ];
 
     const REVIEWS = [
-      { text: "Visited for a root canal and was genuinely surprised — no pain, done in one sitting. Dr. Annu explained every step. Will not go elsewhere.", author: "Patient testimonial" },
+      { text: "Visited for a root canal and was genuinely surprised. No pain, done in one sitting. Dr. Annu explained every step.", author: "Patient testimonial" },
       { text: "My daughter had her braces done here. From consultation to removal, everything was seamless. Dr. Annu is extremely patient with anxious kids.", author: "Patient testimonial" },
-      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet — just a filling. That kind of integrity keeps you coming back.", author: "Patient testimonial" },
+      { text: "The most honest dentist I've been to. Told me I didn't need a crown yet, just a filling. That integrity builds trust.", author: "Patient testimonial" },
     ];
 
     /* ── COMPONENTS ────────────────────────────── */
@@ -504,7 +506,7 @@
             <div className="container header-inner">
               <a href="#hero" className="logo">
                 <span className="logo-name">Dr. Annu's Dental Care</span>
-                <span className="logo-sub">Vijay Nagar · Indore</span>
+                <span className="logo-sub">Dental Care. Indore</span>
               </a>
 
               <nav className="desktop-nav">
@@ -512,7 +514,7 @@
                 <a href="#services">Services</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="#contact">Contact</a>
-                <a href="#appointment" className="nav-book">Request Appointment</a>
+                <a href="#appointment" className="nav-book">Plan a Visit</a>
               </nav>
 
               <button
@@ -545,34 +547,34 @@
         <section id="hero" className="hero-section">
           <div className="hero-inner">
             <div className="hero-text">
-              <div className="hero-location">📍 Vijay Nagar, Indore</div>
+              <div className="hero-location">Indore Dental Clinic</div>
 
               <h1 className="hero-h1">
-                Dental care you can count on —{" "}
-                <em>right here in Vijay Nagar</em>
+                Dental care you can trust,{" "}
+                <em>from a clinic that explains every step</em>
               </h1>
 
               <p className="hero-sub">
-                Dr. Annu, BDS · practical dental care right on Radisson Service Road
+                Dr. Annu, BDS. Gentle dental care near Radisson Service Road for patients across Indore.
               </p>
 
               <div className="rating-badge" aria-label="5.0 star rating, 62 Justdial reviews">
                 <span className="stars">★★★★★</span>
                 <span className="score">5.0</span>
-                <span className="count">· 62 reviews</span>
+                <span className="count">62 reviews</span>
                 <span className="src">Justdial</span>
               </div>
 
               <div className="hero-ctas">
                 <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} className="btn btn-primary" target="_blank" rel="noopener">
-                  Ask About Your Dental Concern
+                  Ask a Dental Question
                 </a>
-                <a href="#appointment" className="btn btn-outline">Choose Appointment Date</a>
+                <a href="#appointment" className="btn btn-outline">Plan a Visit</a>
               </div>
               <div className="hero-steps" aria-label="Visit process">
-                <div className="hero-step"><span>1</span> Ask your concern on WhatsApp</div>
-                <div className="hero-step"><span>2</span> Pick a date and exact time</div>
-                <div className="hero-step"><span>3</span> Visit after clinic confirmation</div>
+                <div className="hero-step"><span>1</span> Ask a question by call or WhatsApp</div>
+                <div className="hero-step"><span>2</span> Choose a date if you want an appointment</div>
+                <div className="hero-step"><span>3</span> Visit with confidence after confirmation</div>
               </div>
             </div>
 
@@ -595,29 +597,26 @@
               <div className="about-text">
                 <div className="sec-label">Meet the Doctor</div>
                 <h2 className="sec-title">
-                  A dentist patients can message before they visit
+                  Warm dental care built on trust
                 </h2>
                 <div className="accent-rule" />
 
                 <p>
-                  <strong>Dr. Annu's Dental Care</strong> is right behind the HP Petrol Pump on
-                  Radisson Service Road. The practice is built on a simple idea: Vijay Nagar
-                  residents deserve a dentist they can walk into, trust, and come back to.
+                  <strong>Dr. Annu's Dental Care</strong> focuses on clear explanations, gentle treatment, and patient comfort.
+                  Whether someone comes from nearby or another part of Indore, the priority is making the visit feel calm and understood.
                 </p>
                 <p>
-                  Dr. Annu holds a <strong>BDS</strong> and has built the kind of practice where patients aren't
-                  rushed and every procedure is explained before it starts.
+                  Dr. Annu holds a <strong>BDS</strong>. Patients are not rushed, and treatment options are explained in simple language before anything starts.
                 </p>
                 <p>
-                  If you are unsure whether pain, swelling, or a broken tooth needs urgent care,
-                  send a message first. The clinic can guide you on timing before you travel.
+                  Questions are always welcome. If something feels urgent, call the clinic. If it is a simple concern, WhatsApp is an easy way to ask.
                 </p>
 
                 <div className="cred-badges">
                   <span className="cred-badge">BDS Dentist</span>
-                  <span className="cred-badge">WhatsApp-first booking</span>
-                  <span className="cred-badge">Vijay Nagar, Indore</span>
-                  <span className="cred-badge">5.0 ★ · 62 Reviews</span>
+                  <span className="cred-badge">Call and WhatsApp Support</span>
+                  <span className="cred-badge">Indore</span>
+                  <span className="cred-badge">5.0 ★. 62 Reviews</span>
                 </div>
               </div>
             </div>
@@ -652,15 +651,15 @@
 
     function MessageReasons() {
       const reasons = [
-        { icon: "fa-bolt", title: "Tooth pain or swelling", text: "Ask whether it sounds urgent and what timing to request before you travel." },
-        { icon: "fa-tooth", title: "Broken tooth or filling", text: "Share what happened and ask if a same-day visit makes sense." },
-        { icon: "fa-calendar-check", title: "Cleaning or checkup", text: "Pick a calm appointment time and confirm availability on WhatsApp." },
+        { icon: "fa-bolt", title: "Pain or swelling", text: "If it feels urgent, call the clinic. For simple questions, send a WhatsApp message and the clinic will guide you." },
+        { icon: "fa-tooth", title: "Broken tooth or filling", text: "Share what happened. The clinic can help you decide whether to visit soon or schedule a regular appointment." },
+        { icon: "fa-calendar-check", title: "Routine dental care", text: "For cleaning, checkups, braces, or implant queries, call or WhatsApp when convenient." },
       ];
       return (
         <section className="message-section">
           <div className="container">
-            <div className="sec-label">Ask Before You Visit</div>
-            <h2 className="sec-title">Common reasons patients message first</h2>
+            <div className="sec-label">Questions Are Welcome</div>
+            <h2 className="sec-title">Call or WhatsApp for simple dental questions</h2>
             <div className="accent-rule" />
             <div className="message-grid">
               {reasons.map(({ icon, title, text }) => (
@@ -681,9 +680,9 @@
         <section id="testimonials" className="testimonials-section">
           <div className="container">
             <div className="sec-label">Patient Voices</div>
-            <h2 className="sec-title">What Vijay Nagar says</h2>
+            <h2 className="sec-title">What patients say about Dr. Annu</h2>
             <p style={{ color: "var(--text-light)", fontSize: 15, marginBottom: 8 }}>
-              5.0 ★ · 62 reviews on Justdial. These testimonials show the trust signals a patient looks for before booking.
+              5.0 ★. 62 reviews on Justdial. These testimonials show the trust signals a patient looks for before booking.
             </p>
             <div className="accent-rule" />
 
@@ -696,7 +695,7 @@
                   </p>
                   <div className="testi-stars" aria-label="5 stars">★★★★★</div>
                   <div className="testi-author">
-                    — Patient testimonial
+                    Patient testimonial
                   </div>
                 </div>
               ))}
@@ -722,7 +721,7 @@
                   <div className="c-info">
                     Plot No. 5, Gangadevi Nagar,<br />
                     Near HP Petrol Pump, Radisson Service Road,<br />
-                    Vijay Nagar, Indore – 452010
+                    Vijay Nagar, Indore 452010
                   </div>
                 </div>
 
@@ -739,14 +738,14 @@
                     <table className="hours-table">
                       <tbody>
                         <tr>
-                          <td>Mon – Sat</td>
+                          <td>Monday to Saturday</td>
                           <td>
-                            Message the clinic to confirm today's timing
+                            Call for urgent concerns. WhatsApp is open for simple questions.
                           </td>
                         </tr>
                         <tr>
                           <td>Sunday</td>
-                          <td>Confirm on WhatsApp before visiting</td>
+                          <td>Call or WhatsApp to confirm availability</td>
                         </tr>
                       </tbody>
                     </table>
@@ -756,13 +755,13 @@
                 <div className="contact-detail">
                   <div className="c-icon" style={{ fontWeight: 700, fontSize: 13 }}>₹</div>
                   <div className="c-info">
-                    Consultation fee can be confirmed on WhatsApp before booking.
+                    Consultation details can be confirmed by call or WhatsApp.
                   </div>
                 </div>
 
                 <div className="contact-ctas">
-                  <a href={WA_LINK} className="btn btn-primary" target="_blank" rel="noopener">
-                    Confirm Visit on WhatsApp
+                  <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} className="btn btn-primary" target="_blank" rel="noopener">
+                    WhatsApp the Clinic
                   </a>
                   <a href={TEL} className="btn btn-outline">
                     Call the Clinic
@@ -776,7 +775,7 @@
                   src="https://maps.google.com/maps?q=Plot%20No.%205%2C%20Gangadevi%20Nagar%2C%20Near%20HP%20Petrol%20Pump%2C%20Vijay%20Nagar%2C%20Indore&output=embed"
                   width="100%" height="360" style={{ border: 0 }}
                   allowFullScreen loading="lazy"
-                  title="Dr. Annu's Dental Care — Vijay Nagar, Indore"
+                  title="Dr. Annu's Dental Care, Indore"
                 />
               </div>
             </div>
@@ -789,13 +788,13 @@
       const photos = [
         ["Sterile instruments prepared before treatment", "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80"],
         ["A calm consultation before any procedure starts", "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"],
-        ["Modern dental chair care for Vijay Nagar patients", "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"],
+        ["Modern dental chair care for patients across Indore", "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"],
       ];
       return (
         <section className="care-proof-section">
           <div className="container">
             <div className="sec-label">What Builds Trust</div>
-            <h2 className="sec-title">A cleaner, calmer dental visit in Vijay Nagar</h2>
+            <h2 className="sec-title">A cleaner, calmer dental visit</h2>
             <div className="accent-rule" />
             <div className="care-proof-grid">
               {photos.map(([label, url]) => (
@@ -805,7 +804,7 @@
               ))}
             </div>
             <p className="care-note">
-              Patients trust what they can understand: clean instruments, a calm consultation, and a clinic that explains the next step before treatment starts.
+              Patients trust what they can understand. Clean instruments, a calm consultation, and a clinic that explains the next step before treatment starts.
             </p>
           </div>
         </section>
@@ -824,10 +823,10 @@
           <div className="container">
             <div className="appointment-panel">
               <div>
-                <div className="sec-label">Appointment Request</div>
-                <h2 className="sec-title">Choose your date and time</h2>
+                <div className="sec-label">Plan Your Visit</div>
+                <h2 className="sec-title">Choose a preferred date and time</h2>
                 <p className="care-note" style={{ marginTop: 0 }}>
-                  Select a calendar date and exact time. The clinic receives your request on WhatsApp and confirms availability before you visit.
+                  Appointment requests help the clinic plan your visit. For urgent pain or swelling, call the clinic directly.
                 </p>
               </div>
               <div>
@@ -848,7 +847,7 @@
                   <option>Not sure, need advice</option>
                 </select>
                 <div className="booking-preview">{message.split("\n").map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}</div>
-                <a href={waFor(message)} className="btn btn-primary" target="_blank" rel="noopener">Request This Date & Time</a>
+                <a href={waFor(message)} className="btn btn-primary" target="_blank" rel="noopener">Send Appointment Request</a>
               </div>
             </div>
           </div>
@@ -863,12 +862,12 @@
             <div className="footer-name">Dr. Annu's Dental Care</div>
             <p className="footer-address">
               Plot No. 5, Gangadevi Nagar, Near HP Petrol Pump,<br />
-              Vijay Nagar, Indore – 452010
+              Vijay Nagar, Indore 452010
             </p>
             <p className="footer-phone">
               <a href={TEL}>{TEL_DISPLAY}</a>
             </p>
-            <p className="footer-copy">© 2025 Dr. Annu's Dental Care · All rights reserved.</p>
+            <p className="footer-copy">© 2025 Dr. Annu's Dental Care. All rights reserved.</p>
           </div>
         </footer>
       );
@@ -878,7 +877,8 @@
       return (
         <div className="sticky-bar" role="complementary" aria-label="Quick contact">
           <a href={waFor(`Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain level:\nSince when:\nCan I visit today?`)} className="sticky-wa" target="_blank" rel="noopener">
-            Ask Question
+            <i className="fab fa-whatsapp" aria-hidden="true" />
+            <span>WhatsApp Query</span>
           </a>
           <a href={TEL} className="sticky-call">Call Clinic</a>
         </div>
