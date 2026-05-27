@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dream Smile Dental | Lokmanya Nagar, Indore</title>
+  <meta name="description" content="Dream Smile Dental. Smile design, whitening, veneers and cosmetic dentistry in Indore. Plan a smile consultation." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" integrity="sha384-tMH8h3BGESGckSAVGZ82T9n90ztNXxvdwvdM6UoR56cYcf+0iGXBliJ29D+wZ/x8" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" integrity="sha384-bm7MnzvK++ykSwVJ2tynSE5TRdN+xL418osEVF2DE/L/gfWHj91J2Sphe582B1Bh" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.23.10/babel.min.js" integrity="sha384-KCD0A3BqTNZfWlXJcL7fKzDri97vicyNr4NUIr0vX6K9PZ0X5hOTeEbFh99jPEST" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --primary:  #4A1942;
+      --accent:   #C89B8C;
+      --dark:     #1C1018;
+      --dark-2:   #271220;
+      --cream:    #FBF7F4;
+      --bg:       #FBF7F4;
+      --text:     #1C1C1C;
+      --text-light: #6A5A63;
+      --white:    #FFFFFF;
+      --gold:     #E8B84B;
+      --wa-green: #25D366;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.6; }
+    @media (max-width: 768px) { body { padding-bottom: 58px; } }
+
+    .ph { background: rgba(255,165,0,.14); border: 1px dashed rgba(255,165,0,.55); border-radius: 4px; padding: 2px 8px; font-style: italic; opacity: .85; display: inline-block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; min-height: 50px; transition: all .22s ease; white-space: nowrap; cursor: pointer; border: none; letter-spacing: .5px; text-transform: uppercase; }
+    .btn-gold { background: var(--accent); color: var(--white); }
+    .btn-gold:hover { background: #b5887a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,155,140,.4); }
+    .btn-outline-light { background: transparent; color: var(--cream); border: 1px solid rgba(251,247,244,.3); }
+    .btn-outline-light:hover { background: rgba(251,247,244,.1); }
+    .btn-outline-dark { background: transparent; color: var(--primary); border: 1px solid rgba(74,25,66,.25); }
+    .btn-outline-dark:hover { background: var(--primary); color: var(--cream); }
+
+    /* ── HEADER — light, plum text, over dark hero ── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--dark); border-bottom: 1px solid rgba(251,247,244,.06); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { text-decoration: none; display: flex; flex-direction: column; }
+    .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--cream); line-height: 1.1; letter-spacing: .3px; }
+    .logo-sub  { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); }
+    .desktop-nav { display: none; gap: 32px; align-items: center; }
+    .desktop-nav a { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: rgba(251,247,244,.65); text-decoration: none; transition: color .2s; }
+    .desktop-nav a:hover { color: var(--accent); }
+    .nav-consult { background: var(--accent) !important; color: var(--white) !important; padding: 8px 20px; font-size: 12px !important; letter-spacing: 1px !important; }
+    .nav-consult:hover { background: #b5887a !important; }
+    @media (min-width: 769px) { .desktop-nav { display: flex; } }
+    .hamburger-btn { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger-btn span { display: block; width: 22px; height: 2px; background: var(--accent); border-radius: 2px; transition: all .3s; }
+    @media (min-width: 769px) { .hamburger-btn { display: none; } }
+    .mobile-menu { position: fixed; top: 64px; left: 0; right: 0; background: var(--dark-2); padding: 12px 24px 20px; box-shadow: 0 12px 32px rgba(0,0,0,.3); z-index: 99; transform: translateY(-110%); transition: transform .3s cubic-bezier(.4,0,.2,1); }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a { display: block; padding: 14px 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: .5px; color: rgba(251,247,244,.75); text-decoration: none; border-bottom: 1px solid rgba(251,247,244,.06); text-transform: uppercase; font-size: 13px; }
+    .mobile-menu a:last-child { border: none; }
+
+    /* ── HERO — dark, aspirational ── */
+    .hero-section { background: var(--dark); padding: 72px 24px 80px; min-height: calc(100vh - 64px); display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 70% 50%, rgba(74,25,66,.4) 0%, transparent 65%); pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+    @media (min-width: 769px) { .hero-inner { grid-template-columns: 1fr 360px; gap: 60px; } }
+    .hero-text { order: 2; }
+    .hero-visual { order: 1; display: flex; justify-content: center; }
+    @media (min-width: 769px) { .hero-text { order: 1; } .hero-visual { order: 2; justify-content: flex-end; } }
+    .hero-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 20px; }
+    .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 6vw, 68px); font-weight: 500; line-height: 1.1; color: var(--cream); margin-bottom: 20px; letter-spacing: -.5px; }
+    .hero-h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 15px; color: rgba(251,247,244,.55); margin-bottom: 32px; font-weight: 400; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Doctor circle — dark-adapted */
+    .doctor-circle-dark { border-radius: 50%; background: linear-gradient(140deg, rgba(74,25,66,.22), rgba(28,16,24,.15)), url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80'); background-size: cover; background-position: center; border: 2px solid rgba(200,155,140,.4); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 8px 48px rgba(0,0,0,.6), 0 0 0 8px rgba(200,155,140,.06); flex-shrink: 0; animation: photoFloat 5s ease-in-out infinite; }
+    @keyframes photoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .dcd-initials { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--accent); line-height: 1; }
+    .dcd-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(200,155,140,.6); margin-top: 6px; }
+
+    /* ── ABOUT — light section, editorial ── */
+    .about-section { padding: 88px 24px; background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+    @media (min-width: 769px) { .about-grid { grid-template-columns: 260px 1fr; gap: 72px; } }
+    .about-photo { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .about-photo-circle { border-radius: 50%; background: linear-gradient(140deg, rgba(232,212,228,.25), rgba(212,180,206,.2)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80'); background-size: cover; background-position: center; border: 2px solid var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 8px 40px rgba(74,25,66,.12); }
+    .about-photo-circle .dc-initials { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--primary); line-height: 1; }
+    .about-photo-circle .dc-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-top: 4px; }
+    .about-credential { text-align: center; }
+    .about-credential strong { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--primary); display: block; }
+    .about-credential span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: var(--text-light); }
+    .about-text .sec-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 12px; }
+    .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: var(--primary); line-height: 1.15; margin-bottom: 8px; }
+    .about-divider { width: 40px; height: 1px; background: var(--accent); margin: 20px 0 28px; }
+    .about-text p { font-size: 15px; color: var(--text-light); line-height: 1.85; margin-bottom: 16px; }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+
+    /* ── SMILE MENU — editorial service cards ── */
+    .services-section { padding: 88px 24px; background: var(--white); }
+    .services-header { margin-bottom: 48px; }
+    .services-header .sec-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 12px; }
+    .services-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: var(--primary); }
+    .smile-menu-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 600px) { .smile-menu-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .smile-menu-grid { grid-template-columns: repeat(3, 1fr); } }
+    .smile-card { padding: 28px 24px; border: 1px solid rgba(74,25,66,.1); background: var(--cream); transition: all .25s ease; }
+    .smile-card:hover { border-color: var(--accent); box-shadow: 0 8px 32px rgba(200,155,140,.15); transform: translateY(-3px); }
+    .svc-line { width: 28px; height: 2px; background: var(--accent); margin-bottom: 18px; }
+    .svc-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 10px; line-height: 1.2; }
+    .svc-desc { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: var(--text-light); line-height: 1.65; }
+
+    /* ── BEFORE/AFTER — dark section, placeholder frames ── */
+    .transformations-section { padding: 88px 24px; background: var(--dark); }
+    .transformations-header { margin-bottom: 48px; }
+    .transformations-header .sec-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 12px; }
+    .transformations-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 500; color: var(--cream); }
+    .transformation-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 769px) { .transformation-grid { grid-template-columns: repeat(3, 1fr); } }
+    .transform-card { border: 1px solid rgba(200,155,140,.15); overflow: hidden; }
+    .transform-label-bar { background: rgba(200,155,140,.1); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .transform-label-bar span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+    .transform-frames { display: grid; grid-template-columns: 1fr 1fr; }
+    .transform-frame { height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 1px dashed rgba(200,155,140,.15); background: rgba(255,255,255,.02); }
+    .transform-frame-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; color: rgba(251,247,244,.25); text-transform: uppercase; letter-spacing: 1px; }
+    .transform-frame-note { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9px; color: rgba(251,247,244,.12); font-style: italic; text-align: center; padding: 0 12px; }
+    .transform-note { padding: 20px 24px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: rgba(251,247,244,.3); font-style: italic; border-top: 1px solid rgba(200,155,140,.1); text-align: center; }
+
+    /* ── TESTIMONIALS — pull quotes ── */
+    .testimonials-section { padding: 88px 24px; background: var(--cream); }
+    .testimonials-header { margin-bottom: 48px; }
+    .testimonials-header .sec-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 12px; }
+    .testimonials-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: var(--primary); }
+    .pullquote-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 769px) { .pullquote-grid { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
+    .pullquote { }
+    .pq-mark { font-family: 'Cormorant Garamond', serif; font-size: 72px; line-height: .7; color: var(--accent); display: block; margin-bottom: 14px; opacity: .6; }
+    .pq-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.5vw, 21px); font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+    .pq-stars { color: var(--gold); font-size: 12px; margin-bottom: 8px; }
+    .pq-author { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: var(--text-light); font-weight: 600; letter-spacing: .3px; }
+
+    /* ── CONTACT — dark section ── */
+    .contact-section { padding: 88px 24px; background: var(--dark); }
+    .contact-header { margin-bottom: 48px; }
+    .contact-header .sec-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 12px; }
+    .contact-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 500; color: var(--cream); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 769px) { .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .contact-detail { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 24px; }
+    .c-icon { width: 36px; height: 36px; background: rgba(200,155,140,.1); border: 1px solid rgba(200,155,140,.2); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .c-info { font-size: 14px; color: rgba(251,247,244,.6); line-height: 1.7; }
+    .c-info a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .c-info a:hover { text-decoration: underline; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+    .hours-table td { padding: 6px 0; font-size: 13px; color: rgba(251,247,244,.45); border-bottom: 1px solid rgba(255,255,255,.04); }
+    .hours-table td:first-child { font-weight: 600; color: rgba(251,247,244,.7); width: 45%; }
+    .contact-ctas { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .contact-ctas .btn { justify-content: center; }
+    .map-wrap { border: 1px solid rgba(200,155,140,.2); overflow: hidden; }
+    .map-wrap iframe { display: block; width: 100%; height: 360px; border: 0; filter: grayscale(30%) brightness(0.7); }
+
+    /* Trust photos and appointment request */
+    .care-proof-section { padding: 88px 24px; background: var(--cream); }
+    .care-proof-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 769px) { .care-proof-grid { grid-template-columns: 1.2fr .8fr; } }
+    .care-photo { min-height: 280px; overflow: hidden; position: relative; background-size: cover; background-position: center; filter: saturate(.9); }
+    .care-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(28,16,24,.78)); }
+    .care-photo span { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; color: var(--cream); font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; }
+    .care-note { margin-top: 18px; color: var(--text-light); font-size: 13px; line-height: 1.8; }
+    .appointment-section { padding: 88px 24px; background: var(--dark); }
+    .appointment-panel { display: grid; grid-template-columns: 1fr; gap: 30px; border: 1px solid rgba(200,155,140,.18); padding: 28px; }
+    @media (min-width: 769px) { .appointment-panel { grid-template-columns: .9fr 1.1fr; padding: 38px; } }
+    .appointment-panel .sec-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); margin-bottom: 12px; }
+    .appointment-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 500; color: var(--cream); line-height: 1.15; margin-bottom: 12px; }
+    .appointment-panel p { color: rgba(251,247,244,.55); font-size: 14px; line-height: 1.8; }
+    .slot-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .slot-btn { border: 1px solid rgba(200,155,140,.22); background: transparent; color: var(--accent); padding: 11px 8px; font: 600 11px 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; letter-spacing: .8px; cursor: pointer; }
+    .slot-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .concern-select { width: 100%; min-height: 48px; border: 1px solid rgba(200,155,140,.22); padding: 0 12px; color: var(--cream); font: 500 13px 'Plus Jakarta Sans', sans-serif; background: var(--dark-2); margin-bottom: 16px; }
+    .date-input { width: 100%; min-height: 48px; border: 1px solid rgba(200,155,140,.22); padding: 0 12px; color: var(--cream); font: 600 13px 'Plus Jakarta Sans', sans-serif; background: var(--dark-2); margin-bottom: 16px; color-scheme: dark; }
+    .booking-preview { background: rgba(255,255,255,.03); border-left: 2px solid var(--accent); padding: 14px 16px; color: rgba(251,247,244,.55); font-size: 12px; line-height: 1.7; margin-bottom: 16px; }
+
+    /* ── FOOTER — dark ── */
+    .site-footer { background: var(--dark-2); border-top: 1px solid rgba(200,155,140,.1); color: rgba(251,247,244,.4); padding: 32px 24px; text-align: center; }
+    .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--cream); margin-bottom: 6px; letter-spacing: .3px; }
+    .footer-address { font-size: 12px; margin-bottom: 4px; }
+    .footer-phone a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 13px; }
+    .footer-copy { font-size: 10px; opacity: .4; margin-top: 16px; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; display: flex; height: 58px; }
+    @media (min-width: 769px) { .sticky-bar { display: none; } }
+    .sticky-bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; text-decoration: none; color: var(--white); text-transform: uppercase; letter-spacing: .5px; }
+    .sticky-wa   { background: var(--wa-green); }
+    .sticky-call { background: var(--primary); }
+    .sticky-wa i { width: 28px; height: 28px; border-radius: 50%; background: #fff; color: #128C4A; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; }
+
+    /* ── WA BUBBLE ── */
+    .wa-bubble { position: fixed; bottom: 28px; right: 28px; display: none; align-items: center; gap: 10px; background: var(--wa-green); color: #fff; border-radius: 999px; padding: 12px 18px 12px 14px; box-shadow: 0 4px 24px rgba(37,211,102,.5); z-index: 200; text-decoration: none; transition: transform .2s; animation: waPulse 2.1s infinite; }
+    .wa-bubble:hover { transform: translateY(-2px) scale(1.03); animation-play-state: paused; }
+    .wa-bubble svg { width: 28px; height: 28px; fill: white; flex: 0 0 auto; }
+    .wa-bubble-text { display: flex; flex-direction: column; line-height: 1.15; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .4px; }
+    .wa-bubble-text small { font-size: 10px; font-weight: 500; opacity: .85; text-transform: none; letter-spacing: 0; }
+    @keyframes waPulse { 0%,100% { box-shadow: 0 4px 24px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.28); } 50% { box-shadow: 0 4px 24px rgba(37,211,102,.55), 0 0 0 12px rgba(37,211,102,0); } }
+    @media (min-width: 769px) { .wa-bubble { display: flex; } }
+
+    /* Premium cosmetic product page direction */
+    body { background: #f5f5f7; color: #1d1d1f; }
+    .container { max-width: 1180px; }
+    .site-header { background: rgba(245,245,247,.86); border-bottom: 1px solid rgba(0,0,0,.08); backdrop-filter: blur(18px); }
+    .logo-name { color: #1d1d1f; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0; }
+    .logo-sub { color: #6e6e73; letter-spacing: 1.2px; }
+    .desktop-nav a { color: #424245; text-transform: none; letter-spacing: 0; font-size: 13px; }
+    .desktop-nav a:hover { color: #000; }
+    .nav-consult { background: #0071e3 !important; color: #fff !important; border-radius: 999px; padding: 7px 16px; text-transform: none !important; letter-spacing: 0 !important; }
+    .hamburger-btn span { background: #1d1d1f; }
+    .mobile-menu { background: rgba(245,245,247,.98); }
+    .mobile-menu a { color: #1d1d1f; text-transform: none; letter-spacing: 0; border-bottom-color: rgba(0,0,0,.08); }
+    .btn { border-radius: 999px; min-height: 44px; padding: 11px 22px; text-transform: none; letter-spacing: 0; font-size: 14px; }
+    .btn-gold { background: #0071e3; color: #fff; }
+    .btn-gold:hover { background: #0077ed; box-shadow: 0 8px 24px rgba(0,113,227,.24); }
+    .btn-outline-light, .btn-outline-dark { color: #0071e3; border: 1px solid #0071e3; background: transparent; }
+    .btn-outline-light:hover, .btn-outline-dark:hover { background: #0071e3; color: #fff; }
+
+    .hero-section { background: #f5f5f7; color: #1d1d1f; min-height: auto; padding: 76px 24px 34px; display: block; }
+    .hero-section::before { display: none; }
+    .hero-inner { display: flex; flex-direction: column; gap: 30px; align-items: center; text-align: center; max-width: 1180px; }
+    .hero-text { order: 1; max-width: 820px; }
+    .hero-visual { order: 2; width: 100%; justify-content: center; }
+    .hero-eyebrow { color: #6e6e73; font-size: 12px; letter-spacing: 0; text-transform: none; margin-bottom: 12px; font-weight: 700; }
+    .hero-h1 { font-family: 'Plus Jakarta Sans', sans-serif; color: #1d1d1f; font-size: clamp(44px, 8vw, 92px); font-weight: 700; line-height: 1.02; letter-spacing: 0; margin-bottom: 16px; }
+    .hero-h1 em { color: #1d1d1f; font-style: normal; font-weight: 700; }
+    .hero-sub { color: #6e6e73; font-size: clamp(17px, 2vw, 23px); line-height: 1.42; max-width: 680px; margin: 0 auto 24px; }
+    .hero-ctas { justify-content: center; }
+    .doctor-circle-dark {
+      width: min(100%, 920px) !important;
+      height: clamp(280px, 44vw, 520px) !important;
+      border-radius: 36px;
+      border: 0;
+      box-shadow: 0 28px 80px rgba(0,0,0,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.18)), url('https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=1200');
+      background-size: cover;
+      background-position: center;
+      animation: none;
+    }
+
+    .about-section, .services-section, .testimonials-section, .care-proof-section { background: #fff; padding: 96px 24px; }
+    .about-grid { grid-template-columns: 1fr; max-width: 900px; margin: 0 auto; text-align: center; gap: 28px; }
+    .about-photo { display: none; }
+    .about-text .sec-eyebrow, .services-header .sec-eyebrow, .transformations-header .sec-eyebrow, .testimonials-header .sec-eyebrow, .contact-header .sec-eyebrow, .appointment-panel .sec-eyebrow { color: #6e6e73; letter-spacing: 0; text-transform: none; font-size: 13px; }
+    .about-text h2, .services-header h2, .transformations-header h2, .testimonials-header h2, .contact-header h2, .appointment-panel h2 { font-family: 'Plus Jakarta Sans', sans-serif; color: #1d1d1f; font-size: clamp(34px, 5vw, 64px); font-weight: 700; line-height: 1.06; letter-spacing: 0; }
+    .about-divider { margin: 20px auto 28px; background: #d2d2d7; }
+    .about-text p { color: #6e6e73; font-size: 17px; line-height: 1.7; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .services-header, .transformations-header, .testimonials-header, .contact-header { text-align: center; }
+    .smile-menu-grid { gap: 18px; }
+    .smile-card { background: #f5f5f7; border: 0; border-radius: 28px; min-height: 210px; padding: 28px; }
+    .smile-card:hover { box-shadow: 0 18px 42px rgba(0,0,0,.08); transform: translateY(-4px); border-color: transparent; }
+    .svc-line { background: #0071e3; border-radius: 99px; }
+    .svc-name { font-family: 'Plus Jakarta Sans', sans-serif; color: #1d1d1f; font-size: 22px; font-weight: 700; }
+    .svc-desc { color: #6e6e73; font-size: 14px; }
+
+    .transformations-section, .appointment-section { background: #000; color: #f5f5f7; padding: 96px 24px; }
+    .transformations-header h2, .appointment-panel h2 { color: #f5f5f7; }
+    .transform-card { border: 0; border-radius: 28px; background: #1d1d1f; overflow: hidden; }
+    .transform-label-bar { background: #2c2c2e; }
+    .transform-label-bar span { color: #f5f5f7; letter-spacing: 0; text-transform: none; }
+    .transform-frame { height: 190px; border: 1px solid rgba(255,255,255,.08); background: radial-gradient(circle at center, #3a3a3c, #1d1d1f); }
+    .transform-note { border-top: 1px solid rgba(255,255,255,.08); color: #a1a1a6; }
+    .pullquote-grid { gap: 18px; }
+    .pullquote { background: #f5f5f7; border-radius: 28px; padding: 30px; }
+    .pq-mark { color: #0071e3; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 42px; }
+    .pq-text { font-family: 'Plus Jakarta Sans', sans-serif; color: #1d1d1f; font-style: normal; font-size: 17px; line-height: 1.55; }
+    .pq-author { color: #6e6e73; }
+    .care-proof-grid { gap: 18px; }
+    .care-photo { border-radius: 28px; min-height: 360px; box-shadow: none; }
+    .care-photo span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 700; }
+
+    .contact-section { background: #f5f5f7; color: #1d1d1f; padding: 96px 24px; }
+    .contact-header h2 { color: #1d1d1f; }
+    .contact-grid { background: #fff; border-radius: 30px; padding: 28px; }
+    .c-icon { background: #f5f5f7; border: 0; color: #0071e3; border-radius: 14px; }
+    .c-info, .hours-table td, .hours-table td:first-child { color: #6e6e73; }
+    .c-info a { color: #0071e3; }
+    .map-wrap { border: 0; border-radius: 24px; }
+    .map-wrap iframe { filter: grayscale(15%); border-radius: 24px; }
+    .appointment-panel { border: 0; border-radius: 30px; background: #1d1d1f; padding: 34px; }
+    .appointment-panel p, .booking-preview { color: #a1a1a6; }
+    .date-input, .concern-select, .slot-btn { border-radius: 16px; border-color: rgba(255,255,255,.12); background: #2c2c2e; color: #f5f5f7; }
+    .slot-btn.active { background: #0071e3; border-color: #0071e3; }
+    .booking-preview { background: #000; border-left-color: #0071e3; border-radius: 18px; }
+    .site-footer { background: #000; }
+
+    @media (max-width: 768px) {
+      .hero-section, .about-section, .services-section, .transformations-section, .testimonials-section, .care-proof-section, .appointment-section, .contact-section { padding: 64px 18px; }
+      .doctor-circle-dark { height: 300px !important; border-radius: 26px; }
+      .contact-grid, .appointment-panel { padding: 22px; border-radius: 24px; }
+      .smile-card, .pullquote, .transform-card { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const WA_LINK = "#appointment";
+    const TEL = "#contact";
+    const TEL_DISPLAY = "Phone and WhatsApp can be connected after owner confirmation";
+    const WA_NUMBER = "";
+    const CLINIC_NAME = "Dream Smile Dental";
+
+    const SERVICES = [
+      { name: "Smile Design",         desc: "A full plan for your ideal smile — combining treatments into one cohesive result, visualised before a single procedure begins." },
+      { name: "Teeth Whitening",       desc: "In-clinic laser whitening that delivers noticeably brighter teeth in one supervised session. Safe, fast, and visible." },
+      { name: "Dental Veneers",        desc: "Ultra-thin porcelain shells that transform the colour, shape, and alignment of your front teeth — in two appointments." },
+      { name: "Clear Aligners",        desc: "Invisible, removable aligners planned digitally. Straighten your teeth without metal brackets, on your schedule." },
+      { name: "Root Canal Treatment",  desc: "Comfortable single-visit RCT to save a damaged tooth. Modern technique — most patients are surprised how easy it is." },
+      { name: "Dental Implants",       desc: "Permanent tooth replacements that look and feel natural. The closest thing to your own tooth." },
+    ];
+
+    const REVIEWS = [
+      { text: "I came in wanting just a cleaning. I left with a plan for the smile I'd always wanted but never thought I could afford. The consultation alone was worth it.", author: "R. Malhotra, Lokmanya Nagar" },
+      { text: "The veneers look completely natural. My colleagues thought I'd just started taking better care of my teeth — nobody guessed I'd had anything done.", author: "S. Jain, Indore" },
+      { text: "Seeing the possible result before treatment made the smile makeover feel clear, planned, and much easier to say yes to.", author: "P. Singh, Lokmanya Nagar" },
+    ];
+
+    function Placeholder({ children }) { return null; }
+
+    function waFor(message) {
+      return WA_NUMBER ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}` : "#contact";
+    }
+
+    function Header({ menuOpen, setMenuOpen }) {
+      return (
+        <>
+          <header className="site-header">
+            <div className="container header-inner">
+              <a href="#hero" className="logo">
+                <span className="logo-name">Dream Smile Dental</span>
+                <span className="logo-sub">Smile Design. Indore</span>
+              </a>
+              <nav className="desktop-nav">
+                <a href="#about">About</a>
+                <a href="#services">Treatments</a>
+                <a href="#transformations">Transformations</a>
+                <a href="#testimonials">Stories</a>
+                <a href="#contact">Contact</a>
+                <a href="#appointment" className="nav-consult">Book Consultation</a>
+              </nav>
+              <button className="hamburger-btn" onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu" aria-expanded={menuOpen}>
+                <span /><span /><span />
+              </button>
+            </div>
+          </header>
+          <div className={`mobile-menu ${menuOpen ? "open" : ""}`} role="navigation">
+            {[["#about","About"],["#services","Treatments"],["#transformations","Transformations"],["#testimonials","Patient Stories"],["#contact","Find Us"]].map(([h, l]) => (
+              <a key={h} href={h} onClick={() => setMenuOpen(false)}>{l}</a>
+            ))}
+            <a href="#appointment" onClick={() => setMenuOpen(false)} style={{ color: "var(--accent)", fontWeight: 700 }}>
+              Book Smile Consultation
+            </a>
+          </div>
+        </>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section id="hero" className="hero-section">
+          <div className="hero-inner">
+            <div className="hero-text">
+              <div className="hero-eyebrow">Smile Design. Cosmetic Dentistry. Indore</div>
+              <h1 className="hero-h1">
+                Dream Smile.<br />
+                <em>Designed around you.</em>
+              </h1>
+              <p className="hero-sub">
+                Whitening, veneers, aligners, and smile design planned with a clean consultation-first process in Indore.
+              </p>
+              <div className="hero-ctas">
+                <a href="#appointment" className="btn btn-gold">
+                  Book a Smile Consultation
+                </a>
+                <a href={TEL} className="btn btn-outline-light">
+                  Contact
+                </a>
+              </div>
+            </div>
+            <div className="hero-visual">
+              <div className="doctor-circle-dark" style={{ width: 240, height: 240 }} role="img" aria-label="Cosmetic dental care photo" />
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function About() {
+      return (
+        <section id="about" className="about-section">
+          <div className="container">
+            <div className="about-grid">
+              <div className="about-photo">
+                <div className="about-photo-circle" style={{ width: 220, height: 220 }}>
+                </div>
+                <div className="about-credential" style={{ marginTop: 20 }}>
+                  <strong>Dream Smile Dental</strong>
+                  <span>Smile consultation and cosmetic planning</span>
+                </div>
+              </div>
+              <div className="about-text">
+                <div className="sec-eyebrow">The Doctor</div>
+                <h2>
+                  Smile planning should feel personal<br />
+                  <em style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, fontSize: "0.85em", color: "var(--text-light)" }}>
+                    Smile design for Lokmanya Nagar
+                  </em>
+                </h2>
+                <div className="about-divider" />
+                <p>
+                  The name <strong>Dream Smile</strong> wasn't picked at random. This practice is positioned around the idea that cosmetic
+                  dentistry is not a luxury. It is something every person in Indore deserves
+                  access to, at a price and pace that works for them.
+                </p>
+                <p>
+                  Patients should be able to ask private questions before committing to a consultation.
+                  That makes it easier to discuss whitening, veneers, aligners, and smile design without pressure.
+                </p>
+                <p>
+                  Every treatment starts with a <strong>no-obligation smile consultation</strong>. An
+                  honest conversation about what's possible, what it costs, and what's genuinely right
+                  for you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Services() {
+      return (
+        <section id="services" className="services-section">
+          <div className="container">
+            <div className="services-header">
+              <div className="sec-eyebrow">What we do</div>
+              <h2>Choose your smile upgrade</h2>
+            </div>
+            <div className="smile-menu-grid">
+              {SERVICES.map(({ name, desc }) => (
+                <div className="smile-card" key={name}>
+                  <div className="svc-line" />
+                  <div className="svc-name">{name}</div>
+                  <div className="svc-desc">{desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ── BEFORE / AFTER — unique to cosmetic/Dream Smile ── */
+    function Transformations() {
+      const cases = [
+        { label: "Smile Transformation 1", type: "Veneers + Whitening" },
+        { label: "Smile Transformation 2", type: "Clear Aligners" },
+        { label: "Smile Transformation 3", type: "Full Smile Design" },
+      ];
+      return (
+        <section id="transformations" className="transformations-section">
+          <div className="container">
+            <div className="transformations-header">
+              <div className="sec-eyebrow">Real Results</div>
+              <h2>Before. After. Only with consent.</h2>
+            </div>
+            <div className="transformation-grid">
+              {cases.map(({ label, type }) => (
+                <div className="transform-card" key={label}>
+                  <div className="transform-label-bar">
+                    <span>{label}</span>
+                    <span style={{ fontSize: 10, color: "rgba(200,155,140,.5)" }}>{type}</span>
+                  </div>
+                  <div className="transform-frames">
+                    <div className="transform-frame">
+                      <span className="transform-frame-label">Before</span>
+                      <span className="transform-frame-note">Shown only with patient approval</span>
+                    </div>
+                    <div className="transform-frame">
+                      <span className="transform-frame-label">After</span>
+                      <span className="transform-frame-note">Shown only with patient approval</span>
+                    </div>
+                  </div>
+                  <div className="transform-note">Smile results are shared only after written patient approval.</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ── PULL QUOTE TESTIMONIALS — unique to Dream Smile ── */
+    function Testimonials() {
+      return (
+        <section id="testimonials" className="testimonials-section">
+          <div className="container">
+            <div className="testimonials-header">
+              <div className="sec-eyebrow">Patient Stories</div>
+              <h2>Small changes. Noticeable difference.</h2>
+            </div>
+            <div className="pullquote-grid">
+              {REVIEWS.map(({ text, author }, i) => (
+                <div className="pullquote" key={i}>
+                  <span className="pq-mark" aria-hidden="true">"</span>
+                  <p className="pq-text">{text}</p>
+                  <div className="pq-stars" aria-label="5 stars">★★★★★</div>
+                  <div className="pq-author">{author}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Contact() {
+      return (
+        <section id="contact" className="contact-section">
+          <div className="container">
+            <div className="contact-header">
+              <div className="sec-eyebrow">Find Us</div>
+              <h2>Visit Dream Smile Dental</h2>
+            </div>
+            <div className="contact-grid">
+              <div>
+                <div className="contact-detail">
+                  <div className="c-icon"><i className="fas fa-map-marker-alt" aria-hidden="true" /></div>
+                  <div className="c-info">
+                    Lokmanya Nagar, Indore<br />
+                    Message before visiting to confirm the exact address and landmark.
+                  </div>
+                </div>
+                <div className="contact-detail">
+                  <div className="c-icon"><i className="fas fa-phone-alt" aria-hidden="true" /></div>
+                  <div className="c-info">{TEL_DISPLAY}</div>
+                </div>
+                <div className="contact-detail">
+                  <div className="c-icon"><i className="fas fa-clock" aria-hidden="true" /></div>
+                  <div className="c-info">
+                    <table className="hours-table">
+                      <tbody>
+                        <tr><td>Monday to Saturday</td><td>Timing can be connected after owner confirmation</td></tr>
+                        <tr><td>Sunday</td><td>Availability can be confirmed by the clinic</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="contact-detail">
+                  <div className="c-icon" style={{ fontWeight: 700, fontSize: 13 }}>₹</div>
+                  <div className="c-info">Smile consultation details can be added after the clinic owner confirms them.</div>
+                </div>
+                <div className="contact-ctas">
+                  <a href="#appointment" className="btn btn-gold">Book Smile Consultation</a>
+                  <a href={TEL} className="btn btn-outline-light" style={{ borderColor: "rgba(200,155,140,.3)", color: "rgba(251,247,244,.6)" }}>Contact Details</a>
+                </div>
+              </div>
+              <div className="map-wrap">
+                <iframe src="https://maps.google.com/maps?q=Lokmanya+Nagar+Indore&output=embed" width="100%" height="360" style={{ border: 0 }} allowFullScreen loading="lazy" title="Dream Smile Dental, Indore" />
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function CareProof() {
+      const photos = [
+        ["A consultation designed around the smile you want", "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80"],
+        ["Clinical precision before cosmetic treatment", "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=80"],
+      ];
+      return (
+        <section className="care-proof-section">
+          <div className="container">
+            <div className="services-header">
+              <div className="sec-eyebrow">The Process</div>
+              <h2>Cosmetic dentistry, planned like a procedure</h2>
+            </div>
+            <div className="care-proof-grid">
+              {photos.map(([label, url]) => (
+                <div className="care-photo" style={{ backgroundImage: `url(${url})` }} role="img" aria-label={label} key={label}>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="care-note">
+              A cosmetic consultation should feel private, clinically careful, and clear about what is realistic before treatment begins.
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    function AppointmentRequest() {
+      const today = new Date().toISOString().slice(0, 10);
+      const [date, setDate] = useState(today);
+      const [slot, setSlot] = useState("Evening");
+      const [concern, setConcern] = useState("Smile design consultation");
+      const message = `Hi, I want to request a smile consultation at ${CLINIC_NAME}.\n\nPreferred date: ${date}\nPreferred slot: ${slot}\nInterested in: ${concern}\nName:\n\nPlease confirm availability and what photos/details I should bring.`;
+      return (
+        <section id="appointment" className="appointment-section">
+          <div className="container">
+            <div className="appointment-panel">
+              <div>
+                <div className="sec-eyebrow">Book consultation</div>
+                <h2>Choose a preferred smile consultation slot</h2>
+                <p>The WhatsApp message includes your selected service interest so the clinic can reply with a more useful confirmation.</p>
+              </div>
+              <div>
+                <input className="date-input" type="date" min={today} value={date} onChange={e => setDate(e.target.value)} aria-label="Preferred consultation date" />
+                <div className="slot-options">
+                  {["Morning", "Afternoon", "Evening"].map(item => (
+                    <button type="button" className={`slot-btn ${slot === item ? "active" : ""}`} onClick={() => setSlot(item)} key={item}>{item}</button>
+                  ))}
+                </div>
+                <select className="concern-select" value={concern} onChange={e => setConcern(e.target.value)} aria-label="Select cosmetic interest">
+                  <option>Smile design consultation</option>
+                  <option>Teeth whitening</option>
+                  <option>Veneers</option>
+                  <option>Clear aligners</option>
+                  <option>Not sure, want expert advice</option>
+                </select>
+                <div className="booking-preview">{message.split("\n").map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}</div>
+                <a href={waFor(message)} className="btn btn-gold">Prepare Consultation Request</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="site-footer">
+          <div className="container">
+            <div className="footer-name">Dream Smile Dental</div>
+            <p className="footer-address">Lokmanya Nagar, Indore</p>
+            <p className="footer-phone">Phone and timing can be connected after owner confirmation</p>
+            <p className="footer-copy">© 2025 Dream Smile Dental. All rights reserved.</p>
+          </div>
+        </footer>
+      );
+    }
+
+    function StickyBar() {
+      return (
+        <div className="sticky-bar" role="complementary" aria-label="Quick contact">
+          <a href="#appointment" className="sticky-wa"><i className="fab fa-whatsapp" aria-hidden="true" /> Consult</a>
+          <a href={TEL} className="sticky-call"><i className="fas fa-phone-alt" aria-hidden="true" /> Contact</a>
+        </div>
+      );
+    }
+
+    function WhatsAppBubble() {
+      if (!WA_NUMBER) return null;
+      return (
+        <a href={waFor(`Hi, I have a cosmetic dental question for ${CLINIC_NAME}.\n\nI am interested in:\nMy concern:\nPreferred consultation time:`)} className="wa-bubble" target="_blank" rel="noopener" aria-label="Ask a cosmetic question on WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <span className="wa-bubble-text">Ask privately <small>Smile consultation</small></span>
+        </a>
+      );
+    }
+
+    function App() {
+      const [menuOpen, setMenuOpen] = useState(false);
+      useEffect(() => {
+        function handle(e) {
+          const menu = document.querySelector('.mobile-menu');
+          const btn  = document.querySelector('.hamburger-btn');
+          if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) setMenuOpen(false);
+        }
+        document.addEventListener('click', handle);
+        return () => document.removeEventListener('click', handle);
+      }, []);
+      return (
+        <>
+          <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <main>
+            <Hero />
+            <Testimonials />
+            <About />
+            <Services />
+            <Transformations />
+            <CareProof />
+            <AppointmentRequest />
+            <Contact />
+          </main>
+          <Footer />
+          <StickyBar />
+          <WhatsAppBubble />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
