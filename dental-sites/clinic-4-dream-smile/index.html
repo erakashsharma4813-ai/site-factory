@@ -88,9 +88,13 @@
     .mobile-menu a:last-child { border-bottom: 0; color: var(--teal); }
     @media (min-width: 920px) { .nav { display: flex; } .menu-btn { display: none; } }
 
-    .hero { position: relative; min-height: 650px; color: var(--white); background: linear-gradient(90deg, rgba(63,39,57,.94), rgba(63,39,57,.58)), url("https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=1500"); background-size: cover; background-position: center; display: flex; align-items: center; overflow: hidden; }
-    .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 140px; background: linear-gradient(0deg, var(--paper), transparent); opacity: .95; }
-    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 34px; padding: 78px 0 130px; }
+    .hero { position: relative; min-height: calc(100svh - 118px); color: var(--white); background: var(--teal-dark); display: flex; align-items: center; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(63,39,57,.96), rgba(63,39,57,.58) 52%, rgba(63,39,57,.34)); z-index: 1; }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 130px; background: linear-gradient(0deg, rgba(251,251,248,.96), transparent); opacity: .95; z-index: 2; pointer-events: none; }
+    .hero-bg-window { position: absolute; inset: 0; overflow: hidden; }
+    .hero-bg-track { display: flex; width: 300%; height: 100%; animation: mediaSlide 18s ease-in-out infinite; }
+    .hero-bg-slide { min-width: calc(100% / 3); height: 100%; background-size: cover; background-position: center; animation: kenBurns 10s ease-in-out infinite alternate; }
+    .hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr; gap: 34px; padding: 78px 0 96px; }
     .hero-copy { max-width: 690px; }
     .hero-kicker { color: #aee4da; font-size: 13px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
     .hero h1 { font-family: "Cormorant Garamond", serif; font-size: clamp(48px, 7vw, 82px); line-height: .96; margin-bottom: 22px; }
@@ -101,16 +105,8 @@
     .hero-panel-row { display: flex; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
     .hero-panel-row:first-of-type { border-top: 0; padding-top: 0; }
     .hero-panel-row i { color: var(--teal); margin-top: 4px; }
-    @media (min-width: 980px) { .hero-grid { grid-template-columns: 1fr 390px; align-items: end; } }
+    @media (min-width: 980px) { .hero-grid { grid-template-columns: 1fr 390px; align-items: center; } }
 
-    .media-showcase { position: relative; z-index: 6; background: var(--premium); }
-    .media-frame { width: 100%; overflow: hidden; }
-    .media-window { overflow: hidden; }
-    .media-track { display: flex; width: 300%; animation: mediaSlide 15s ease-in-out infinite; }
-    .media-card { min-width: calc(100% / 3); height: clamp(300px, 42vw, 560px); background-size: cover; background-position: center; position: relative; overflow: hidden; }
-    .media-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(63,39,57,.8), rgba(63,39,57,.18)); z-index: 1; }
-    .media-card::after { content: ""; position: absolute; inset: -5%; background: inherit; background-size: cover; background-position: center; animation: kenBurns 10s ease-in-out infinite alternate; }
-    .media-card span { position: absolute; left: max(26px, calc((100vw - 1180px) / 2)); right: 24px; bottom: clamp(30px, 7vw, 80px); z-index: 2; color: var(--white); font-weight: 900; font-size: clamp(25px, 4vw, 54px); line-height: 1.05; max-width: 620px; text-shadow: 0 18px 45px rgba(0,0,0,.3); }
     @keyframes mediaSlide {
       0%, 26% { transform: translateX(0); }
       34%, 60% { transform: translateX(-33.3333%); }
@@ -131,8 +127,8 @@
     .about-grid { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: center; }
     .photo-stack { position: relative; min-height: 460px; }
     .photo-main, .photo-small { position: absolute; background-size: cover; background-position: center; border-radius: 8px; box-shadow: var(--shadow); }
-    .photo-main { inset: 0 76px 82px 0; background-image: url("https://images.pexels.com/photos/3845624/pexels-photo-3845624.jpeg?auto=compress&cs=tinysrgb&w=900"); }
-    .photo-small { right: 0; bottom: 0; width: 54%; height: 48%; background-image: url("https://images.pexels.com/photos/6502043/pexels-photo-6502043.jpeg?auto=compress&cs=tinysrgb&w=900"); border: 10px solid var(--paper); }
+    .photo-main { inset: 0 76px 82px 0; background-image: url("https://images.pexels.com/photos/4269369/pexels-photo-4269369.jpeg?auto=compress&cs=tinysrgb&w=900&v=dream-india-2"); }
+    .photo-small { right: 0; bottom: 0; width: 54%; height: 48%; background-image: url("https://images.pexels.com/photos/6627285/pexels-photo-6627285.jpeg?auto=compress&cs=tinysrgb&w=900&v=dream-india-2"); border: 10px solid var(--paper); }
     .experience-badge { position: absolute; left: 22px; bottom: 28px; background: var(--teal); color: var(--white); border-radius: 999px; padding: 16px 20px; font-weight: 900; box-shadow: var(--shadow); }
     .check-list { list-style: none; display: grid; gap: 12px; margin: 24px 0 30px; }
     .check-list li { display: flex; gap: 12px; color: #405064; }
@@ -193,6 +189,9 @@
     .gallery-item:hover { transform: translateY(-7px); box-shadow: 0 26px 70px rgba(74,25,66,.14); }
     .gallery-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(63,39,57,.82)); }
     .gallery-item span { position: absolute; left: 22px; right: 22px; bottom: 18px; color: var(--white); z-index: 1; font-weight: 900; font-size: 18px; }
+    .instagram-note { margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; color: var(--teal-dark); font-weight: 900; text-decoration: none; }
+    .instagram-note i { color: #d9477c; font-size: 18px; }
+    .instagram-note:hover { color: var(--teal); text-decoration: underline; }
     @media (min-width: 800px) { .gallery-grid { grid-template-columns: 1.2fr .8fr .8fr; } .gallery-item:first-child { min-height: 420px; } }
 
     .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 42px; }
@@ -257,8 +256,8 @@
     @media (max-width: 768px) {
       .top-strip { display: none; }
       .mobile-menu { top: 76px; }
-      .hero { min-height: auto; }
-      .hero-grid { padding: 64px 0 118px; }
+      .hero { min-height: calc(100svh - 76px); }
+      .hero-grid { padding: 56px 0 98px; }
       .hero-panel { max-width: none; }
       .quick-cards { padding-top: 36px; }
       .section { padding: 68px 0; }
@@ -313,15 +312,15 @@
     ];
 
     const gallery = [
-      ["Consultation and chair side comfort", "https://images.pexels.com/photos/6627354/pexels-photo-6627354.jpeg?auto=compress&cs=tinysrgb&w=900"],
-      ["Clean treatment environment", "https://images.pexels.com/photos/6812570/pexels-photo-6812570.jpeg?auto=compress&cs=tinysrgb&w=900"],
-      ["Smile goals reviewed clearly", "https://images.pexels.com/photos/6502039/pexels-photo-6502039.jpeg?auto=compress&cs=tinysrgb&w=900"],
+      ["A calm checkup with patient comfort", "https://images.pexels.com/photos/5622241/pexels-photo-5622241.jpeg?auto=compress&cs=tinysrgb&w=900&v=dream-india-2"],
+      ["Shade and smile options reviewed clearly", "https://images.pexels.com/photos/5622239/pexels-photo-5622239.jpeg?auto=compress&cs=tinysrgb&w=900&v=dream-india-2"],
+      ["Cosmetic shade matching before treatment", "https://images.pexels.com/photos/5355901/pexels-photo-5355901.jpeg?auto=compress&cs=tinysrgb&w=900&v=dream-india-2"],
     ];
 
     const mediaSlides = [
-      ["Prepared dental chair for a calmer visit", "https://images.pexels.com/photos/3845759/pexels-photo-3845759.jpeg?auto=compress&cs=tinysrgb&w=1600"],
-      ["Dental treatment planning explained clearly", "https://images.pexels.com/photos/3845748/pexels-photo-3845748.jpeg?auto=compress&cs=tinysrgb&w=1600"],
-      ["Clean clinical setup before smile care", "https://images.pexels.com/photos/3845761/pexels-photo-3845761.jpeg?auto=compress&cs=tinysrgb&w=1600"],
+      ["Dream Smile cosmetic smile preview", "https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=1600"],
+      ["Dental X ray discussion before treatment planning", "https://images.pexels.com/photos/6502043/pexels-photo-6502043.jpeg?auto=compress&cs=tinysrgb&w=1600&v=dream-india-2"],
+      ["Tooth shade matching for natural looking smiles", "https://images.pexels.com/photos/6627575/pexels-photo-6627575.jpeg?auto=compress&cs=tinysrgb&w=1600&v=dream-india-2"],
     ];
 
     function waFor(message) {
@@ -384,6 +383,13 @@
       const questionMessage = `Hi, I have a dental question for ${CLINIC_NAME}.\n\nMy concern:\nPain or sensitivity:\nPreferred response time:\n\nPlease guide me on whether I should plan a visit.`;
       return (
         <section className="hero" id="home">
+          <div className="hero-bg-window" aria-hidden="true">
+            <div className="hero-bg-track">
+              {mediaSlides.map(([label, url]) => (
+                <div className="hero-bg-slide" style={{ backgroundImage: `url(${url})` }} key={label} />
+              ))}
+            </div>
+          </div>
           <div className="container hero-grid">
             <div className="hero-copy">
               <div className="hero-kicker">Welcome to Dream Smile Dental</div>
@@ -405,24 +411,6 @@
                 <i className="fab fa-whatsapp" /> Ask on WhatsApp
               </a>
               <a href="#appointment" className="btn btn-primary" style={{ width: "100%", marginTop: 10 }}>Plan Consultation</a>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    function MediaShowcase() {
-      return (
-        <section className="media-showcase reveal" aria-label="Clinic media preview">
-          <div className="media-frame">
-            <div className="media-window">
-              <div className="media-track">
-                {mediaSlides.map(([label, url]) => (
-                  <div className="media-card" style={{ backgroundImage: `url(${url})` }} key={label}>
-                    <span>{label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -556,6 +544,7 @@
             <div className="gallery-grid">
               {gallery.map(([label, url]) => <div className="gallery-item" style={{ backgroundImage: `url(${url})` }} key={label}><span>{label}</span></div>)}
             </div>
+            <a className="instagram-note" href={INSTAGRAM_URL} target="_blank" rel="noopener"><i className="fab fa-instagram" /> View real clinic updates on {INSTAGRAM_HANDLE}</a>
           </div>
         </section>
       );
@@ -727,7 +716,6 @@
           <Header />
           <main>
             <Hero />
-            <MediaShowcase />
             <QuickCards />
             <About />
             <Services />
