@@ -96,7 +96,7 @@ const services = [
 ]
 
 const benefits = [
-  ['Fast delivery', Clock3],
+  ['Basic site in 24 hours', Clock3],
   ['Mobile optimized', MonitorSmartphone],
   ['SEO friendly', Search],
   ['AI-powered workflows', Bot],
@@ -241,8 +241,8 @@ const pricing = [
   {
     name: 'Starter',
     price: '₹14,999',
-    text: 'For new businesses that need a polished online presence quickly.',
-    features: ['5-page website', 'Mobile responsive', 'Contact form', 'Basic SEO setup'],
+    text: 'For new businesses that need a simple, polished website launched fast.',
+    features: ['24-hour basic site option', '5-page website', 'Mobile responsive', 'Contact form', 'Basic SEO setup'],
   },
   {
     name: 'Business',
@@ -260,7 +260,7 @@ const pricing = [
 ]
 
 const faqs = [
-  ['How fast can you launch a website?', 'Most business websites launch in 10 to 21 days depending on page count, content readiness, and integrations.'],
+  ['How fast can you launch a website?', 'A basic simple website can be launched in 24 hours when content and brand details are ready. Larger custom sites usually take 10 to 21 days depending on page count and integrations.'],
   ['Do you write the website content?', 'Yes. We can refine your existing content or create conversion-focused copy for your pages, offers, and CTAs.'],
   ['Can you build AI tools for my business?', 'Yes. We build automations for lead capture, customer replies, internal dashboards, follow-ups, and repetitive workflows.'],
   ['Do you support websites after launch?', 'Yes. Maintenance plans include updates, backups, security checks, small edits, and performance monitoring.'],
@@ -309,7 +309,7 @@ function RequestForm() {
     phone: '',
     service: 'Business Website Development',
     budget: '₹15k - ₹30k',
-    timeline: 'Within 2 weeks',
+    timeline: '24-hour basic website',
     message: '',
   })
 
@@ -337,13 +337,13 @@ function RequestForm() {
   }
 
   return (
-    <form onSubmit={submitRequest} className="rounded-[1.5rem] border border-white/10 bg-white p-5 text-slate-950 shadow-2xl shadow-slate-950/20 sm:p-6">
-      <div className="mb-5 flex items-center gap-3">
-        <span className="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-500 text-white">
+    <form onSubmit={submitRequest} className="w-full min-w-0 max-w-full rounded-[1.5rem] border border-white/10 bg-white p-4 text-slate-950 shadow-2xl shadow-slate-950/20 sm:p-6">
+      <div className="mb-4 flex items-center gap-3">
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-500 text-white">
           <MessageCircle className="h-5 w-5" />
         </span>
-        <div>
-          <h3 className="text-xl font-black">Send request on WhatsApp</h3>
+        <div className="min-w-0">
+          <h3 className="text-lg font-black leading-tight sm:text-xl">Send request on WhatsApp</h3>
           <p className="text-sm text-slate-500">Creates a ready-to-send message template.</p>
         </div>
       </div>
@@ -351,29 +351,29 @@ function RequestForm() {
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-bold text-slate-700">
           Name
-          <input name="name" value={form.name} onChange={updateForm} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Your name" />
+          <input name="name" value={form.name} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Your name" />
         </label>
         <label className="grid gap-2 text-sm font-bold text-slate-700">
           Phone
-          <input name="phone" value={form.phone} onChange={updateForm} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Your phone number" />
+          <input name="phone" value={form.phone} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Your phone number" />
         </label>
       </div>
 
       <label className="mt-3 grid gap-2 text-sm font-bold text-slate-700">
         Business Name
-        <input name="business" value={form.business} onChange={updateForm} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Company, clinic, restaurant, or brand" />
+        <input name="business" value={form.business} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Company, clinic, restaurant, or brand" />
       </label>
 
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-bold text-slate-700">
           Service
-          <select name="service" value={form.service} onChange={updateForm} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+          <select name="service" value={form.service} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
             {services.map((service) => <option key={service.title}>{service.title}</option>)}
           </select>
         </label>
         <label className="grid gap-2 text-sm font-bold text-slate-700">
           Budget
-          <select name="budget" value={form.budget} onChange={updateForm} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+          <select name="budget" value={form.budget} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
             <option>₹15k - ₹30k</option>
             <option>₹30k - ₹60k</option>
             <option>₹60k - ₹1L</option>
@@ -384,7 +384,8 @@ function RequestForm() {
 
       <label className="mt-3 grid gap-2 text-sm font-bold text-slate-700">
         Timeline
-        <select name="timeline" value={form.timeline} onChange={updateForm} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+        <select name="timeline" value={form.timeline} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+          <option>24-hour basic website</option>
           <option>Within 2 weeks</option>
           <option>Within 1 month</option>
           <option>Flexible timeline</option>
@@ -394,15 +395,12 @@ function RequestForm() {
 
       <label className="mt-3 grid gap-2 text-sm font-bold text-slate-700">
         Project Details
-        <textarea name="message" value={form.message} onChange={updateForm} rows="4" className="resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Tell us what you want to build..." />
+        <textarea name="message" value={form.message} onChange={updateForm} rows="3" className="w-full min-w-0 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Tell us what you want to build..." />
       </label>
 
-      <button type="submit" className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-4 font-black text-white shadow-xl shadow-emerald-600/20 transition hover:-translate-y-1 hover:bg-emerald-600">
+      <button type="submit" className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 font-black text-white shadow-xl shadow-emerald-600/20 transition hover:-translate-y-1 hover:bg-emerald-600 sm:py-4">
         Open WhatsApp Request <MessageCircle className="h-5 w-5" />
       </button>
-      <a href={quickWhatsAppUrl} target="_blank" rel="noreferrer" className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 px-6 py-4 font-black text-slate-950 transition hover:-translate-y-1 hover:border-slate-950">
-        Ask a Quick Query
-      </a>
     </form>
   )
 }
@@ -433,14 +431,14 @@ function getSlideOffset(index, activeIndex) {
 function ShowcasePreview({ project, activeProject, setProject, top = false }) {
 
   return (
-    <div className={`relative mx-[calc(50%-50vw)] min-h-[590px] overflow-hidden bg-[#dedfee] px-4 pb-16 pt-14 sm:min-h-[670px] lg:pb-20 ${top ? 'pt-28 sm:pt-32' : 'mt-12'}`}>
+    <div className={`relative mx-[calc(50%-50vw)] min-h-[470px] overflow-hidden bg-[#dedfee] px-4 pb-10 sm:min-h-[620px] sm:pb-16 lg:min-h-[760px] lg:pb-20 ${top ? 'pt-24 sm:pt-28 lg:pt-32' : 'mt-8 pt-10 sm:mt-12 sm:pt-14'}`}>
       <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#5b5a84] to-transparent" />
-      <div className="relative z-30 mx-auto mb-10 max-w-4xl">
-        <div className="flex items-center gap-3 rounded-full border-[5px] border-white bg-white p-3 shadow-[0_0_32px_rgba(34,211,238,0.55)]">
-          <span className="flex-1 px-5 text-sm font-semibold text-slate-700 sm:text-base">Need a premium website for my business...</span>
-          <a href="#request-form" className="rounded-full bg-slate-950 px-5 py-3 text-sm font-black text-white sm:px-7">Request Website</a>
+      <div className="relative z-30 mx-auto mb-5 max-w-4xl sm:mb-10">
+        <div className="flex items-center gap-2 rounded-full border-[4px] border-white bg-white p-2 shadow-[0_0_32px_rgba(34,211,238,0.55)] sm:gap-3 sm:border-[5px] sm:p-3">
+          <span className="min-w-0 flex-1 truncate px-3 text-xs font-semibold text-slate-700 sm:px-5 sm:text-base">Need a premium website for my business...</span>
+          <a href="#request-form" className="shrink-0 rounded-full bg-slate-950 px-4 py-2.5 text-xs font-black text-white sm:px-7 sm:py-3 sm:text-sm">Request Website</a>
         </div>
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
+        <div className="mt-4 hidden flex-wrap justify-center gap-2 sm:flex">
           {['Business website', 'Online store', 'Dashboard', 'Portfolio'].map((item) => (
             <a key={item} href="#request-form" className="rounded-lg border border-white/15 bg-white/10 px-4 py-2 text-xs font-black text-white shadow-sm backdrop-blur">
               {item} <span aria-hidden="true">-&gt;</span>
@@ -448,7 +446,7 @@ function ShowcasePreview({ project, activeProject, setProject, top = false }) {
           ))}
         </div>
       </div>
-      <div className="relative z-10 mx-auto h-[650px] max-w-[1180px] sm:h-[700px] lg:h-[760px]">
+      <div className="relative z-10 mx-auto h-[330px] max-w-[1180px] sm:h-[560px] lg:h-[760px]">
         {showcaseProjects.map((item, index) => {
           const offset = getSlideOffset(index, activeProject)
           const visible = Math.abs(offset) <= 1
@@ -475,13 +473,13 @@ function ShowcasePreview({ project, activeProject, setProject, top = false }) {
         })}
       </div>
 
-      <div className="relative z-20 mx-auto -mt-24 flex w-fit max-w-[calc(100vw-2rem)] flex-wrap justify-center gap-1 rounded-full bg-white/70 p-1.5 shadow-sm backdrop-blur lg:-mt-28">
+      <div className="relative z-20 mx-auto -mt-10 flex w-fit max-w-[calc(100vw-2rem)] flex-nowrap justify-start gap-1 overflow-x-auto rounded-full bg-white/70 p-1.5 shadow-sm backdrop-blur sm:-mt-20 sm:justify-center lg:-mt-28">
         {showcaseProjects.map((item, itemIndex) => (
           <button
             key={item.tab}
             type="button"
             onClick={() => setProject(itemIndex)}
-            className={`rounded-full px-4 py-3 text-sm font-black transition sm:px-7 sm:text-base ${
+            className={`shrink-0 rounded-full px-3.5 py-2.5 text-xs font-black transition sm:px-7 sm:py-3 sm:text-base ${
               item.tab === project.tab ? 'bg-[#3f3f3f] text-white' : 'text-slate-950 hover:bg-white/80'
             }`}
           >
@@ -564,25 +562,29 @@ function App() {
       <main>
         <BuiltProjectsShowcase />
 
-        <section id="home" className="relative overflow-hidden bg-slate-950 pt-32 text-white sm:pt-36">
-          <div className="absolute inset-0 opacity-60">
+        <section id="home" className="relative overflow-hidden bg-slate-950 pt-24 text-white sm:pt-32 lg:pt-36">
+          <div className="pointer-events-none absolute inset-0 opacity-60">
             <div className="absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
             <div className="absolute -right-28 bottom-20 h-80 w-80 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="hero-grid absolute inset-0" />
           </div>
-          <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 pb-24 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:pb-28">
+          <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 pb-14 sm:gap-12 sm:pb-20 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14 lg:px-8 lg:pb-28">
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-cyan-100 backdrop-blur">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-cyan-100 backdrop-blur sm:mb-7 sm:text-sm">
                 <Sparkles className="h-4 w-4 text-cyan-300" />
-                Premium websites built after a clear client request
+                Basic simple websites can launch in 24 hours
               </div>
-              <h1 className="max-w-5xl text-5xl font-black leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+              <h1 className="max-w-5xl text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl">
                 Request a Premium Website. We Build It.
               </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8 lg:text-xl">
                 Clients send their business requirements through WhatsApp or the request form. We design, develop, integrate, and launch professional websites, online stores, dashboards, portfolios, and web apps.
               </p>
-              <div className="mt-6 flex max-w-2xl flex-wrap gap-3">
+              <div className="mt-5 inline-flex items-center gap-3 rounded-2xl border border-lime-300/30 bg-lime-300/10 px-4 py-3 text-sm font-black text-lime-100 shadow-lg shadow-lime-300/10">
+                <Clock3 className="h-5 w-5 text-lime-300" />
+                24-hour launch available for basic websites when content is ready
+              </div>
+              <div className="mt-5 flex max-w-2xl gap-2 overflow-x-auto pb-1 sm:mt-6 sm:flex-wrap sm:gap-3 sm:overflow-visible">
                 {[
                   ['Rebuild my site', Globe2],
                   ['Build an online store', ShoppingCart],
@@ -590,20 +592,20 @@ function App() {
                   ['Book a launch call', CalendarDays],
                   ['Local business website', Building2],
                 ].map(([label, Icon]) => (
-                  <a key={label} href="#request-form" className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-bold text-white/75 backdrop-blur transition hover:border-cyan-300/50 hover:text-white">
+                  <a key={label} href="#request-form" className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-xs font-bold text-white/75 backdrop-blur transition hover:border-cyan-300/50 hover:text-white sm:text-sm">
                     <Icon className="h-4 w-4 text-cyan-300" />
                     {label}
                   </a>
                 ))}
               </div>
-              <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
+              <div className="mt-7 grid max-w-xl grid-cols-3 gap-3 sm:mt-10 sm:gap-4">
                 {[
-                  [120, '+', 'Websites launched'],
+                  [24, 'h', 'Basic website option'],
                   [98, '%', 'Client satisfaction'],
                   [35, '%', 'Avg. lead lift'],
                 ].map(([value, suffix, label]) => (
-                  <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur">
-                    <p className="text-2xl font-black text-white sm:text-3xl"><AnimatedCounter value={value} suffix={suffix} /></p>
+                  <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-3 backdrop-blur sm:p-4">
+                    <p className="text-xl font-black text-white sm:text-3xl"><AnimatedCounter value={value} suffix={suffix} /></p>
                     <p className="mt-1 text-xs font-medium leading-5 text-white/60">{label}</p>
                   </div>
                 ))}
@@ -614,32 +616,32 @@ function App() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="relative"
+              className="relative min-w-0"
             >
-              <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-cyan-400/20 via-fuchsia-400/10 to-lime-300/20 blur-3xl" />
-              <div id="request-form" className="scroll-mt-28">
+              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-cyan-400/20 via-fuchsia-400/10 to-lime-300/20 blur-3xl" />
+              <div id="request-form" className="relative z-10 w-full min-w-0 scroll-mt-28">
                 <RequestForm />
               </div>
             </motion.div>
           </div>
         </section>
 
-        <section id="services" className="relative overflow-hidden bg-slate-50 px-5 py-24 lg:px-8">
+        <section id="services" className="relative overflow-hidden bg-slate-50 px-5 py-14 sm:py-20 lg:px-8 lg:py-24">
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white to-transparent" />
           <div className="relative mx-auto max-w-7xl">
-            <div className="mb-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div className="mb-8 grid gap-6 sm:mb-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
               <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-500">Growth system</p>
-                <h2 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">One request turns into a complete online launch</h2>
+                <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">One request can become a live basic website in 24 hours</h2>
               </div>
               <div className="grid grid-cols-3 gap-3 rounded-[1.5rem] border border-slate-200 bg-white p-3 shadow-sm">
                 {[
-                  [350, '+', 'reviews'],
+                  [24, 'h', 'basic site'],
                   [120, '+', 'launches'],
                   [35, '%', 'lead lift'],
                 ].map(([value, suffix, label]) => (
-                  <div key={label} className="rounded-2xl bg-slate-950 p-5 text-white">
-                    <p className="text-2xl font-black sm:text-3xl"><AnimatedCounter value={value} suffix={suffix} /></p>
+                  <div key={label} className="rounded-2xl bg-slate-950 p-3 text-white sm:p-5">
+                    <p className="text-xl font-black sm:text-3xl"><AnimatedCounter value={value} suffix={suffix} /></p>
                     <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-white/45">{label}</p>
                   </div>
                 ))}
@@ -647,22 +649,22 @@ function App() {
             </div>
 
             <div className="grid gap-6 xl:grid-cols-[0.72fr_1.28fr]">
-              <div className="flex h-full flex-col rounded-[2rem] bg-slate-950 p-7 text-white shadow-2xl shadow-slate-950/15">
-                <div className="mb-8">
+              <div className="flex h-full flex-col rounded-[2rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/15 sm:p-7">
+                <div className="mb-6 sm:mb-8">
                   <div className="flex flex-wrap gap-2">
                     {['DentalPro', 'UrbanEats', 'RealtyIQ', 'CoachLab'].map((logo) => (
                       <span key={logo} className="rounded-full border border-white/10 bg-white/8 px-4 py-2 text-xs font-black text-white/65">{logo}</span>
                     ))}
                   </div>
-                  <p className="mt-6 max-w-sm text-sm leading-6 text-white/45">A compact delivery system for teams that want the website, integrations, and launch support handled in one place.</p>
+                  <p className="mt-6 max-w-sm text-sm leading-6 text-white/45">A compact delivery system for teams that need a basic website fast, or a full custom build with integrations and launch support.</p>
                 </div>
                 <div className="flex-1 space-y-4">
                   {[
                     ['01', 'Raise request', 'Business type, website goal, pages, budget, timeline, integrations.'],
                     ['02', 'Build system', 'Design, copy structure, responsive development, SEO, tracking.'],
-                    ['03', 'Launch growth', 'WhatsApp, forms, automation, dashboards, store, ongoing support.'],
+                    ['03', 'Launch growth', 'Basic websites can go live in 24 hours; larger builds include automation, stores, dashboards, and support.'],
                   ].map(([step, title, text]) => (
-                    <div key={step} className="group rounded-3xl border border-white/10 bg-white/8 p-5 transition hover:bg-white/12">
+                    <div key={step} className="group rounded-3xl border border-white/10 bg-white/8 p-4 transition hover:bg-white/12 sm:p-5">
                       <div className="flex gap-4">
                         <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-cyan-300 font-black text-slate-950">{step}</span>
                         <div>
@@ -673,7 +675,7 @@ function App() {
                     </div>
                   ))}
                 </div>
-                <a href="#request-form" className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-black text-slate-950 transition hover:-translate-y-1">
+                <a href="#request-form" className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3.5 text-sm font-black text-slate-950 transition hover:-translate-y-1 sm:mt-6 sm:py-4">
                   Start a request <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -710,7 +712,7 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-white px-5 py-24 lg:px-8">
+        <section className="bg-white px-5 py-14 sm:py-20 lg:px-8 lg:py-24">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-500">Why choose us</p>
@@ -732,7 +734,7 @@ function App() {
           </div>
         </section>
 
-        <section id="work" className="overflow-hidden bg-slate-950 px-5 py-24 text-white lg:px-8">
+        <section id="work" className="overflow-hidden bg-slate-950 px-5 py-14 text-white sm:py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
               <div className="max-w-3xl">
@@ -779,8 +781,8 @@ function App() {
           </div>
         </section>
 
-        <section id="process" className="bg-white px-5 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/15 sm:p-12">
+        <section id="process" className="bg-white px-5 py-14 sm:py-20 lg:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/15 sm:p-8 lg:p-12">
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
               <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">Process</p>
@@ -822,7 +824,7 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-slate-50 px-5 py-24 lg:px-8">
+        <section className="bg-slate-50 px-5 py-14 sm:py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionHeader eyebrow="Testimonials" title="Proof from businesses like yours" text="Premium design matters, but outcomes matter more. Our clients use their sites to book more calls, sell more services, and save operational time." />
             <div className="grid gap-6 lg:grid-cols-3">
@@ -845,7 +847,7 @@ function App() {
           </div>
         </section>
 
-        <section id="pricing" className="bg-white px-5 py-24 lg:px-8">
+        <section id="pricing" className="bg-white px-5 py-14 sm:py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionHeader eyebrow="Pricing" title="Simple packages to start strong" text="Choose the starting point that fits your business. Every package can be customized based on your goals, pages, integrations, and automation needs." />
             <div className="grid gap-6 lg:grid-cols-3">
@@ -872,22 +874,22 @@ function App() {
           </div>
         </section>
 
-        <section id="faq" className="bg-slate-50 px-5 py-24 lg:px-8">
+        <section id="faq" className="bg-slate-50 px-5 py-14 sm:py-20 lg:px-8 lg:py-24">
           <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.92fr_1.08fr]">
             <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-slate-200 sm:p-10">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-500">FAQ</p>
               <h2 className="text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Questions before we start?</h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">Here are the common details clients ask about before choosing a website build partner.</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl bg-slate-950 p-5 text-white">
+                <a href={quickWhatsAppUrl} target="_blank" rel="noreferrer" className="block rounded-2xl bg-slate-950 p-5 text-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15">
                   <MessageCircle className="mb-4 h-6 w-6 text-emerald-300" />
                   <p className="font-black">Quick WhatsApp help</p>
                   <p className="mt-2 text-sm leading-6 text-white/55">{whatsappDisplayNumber}</p>
-                </div>
+                </a>
                 <div className="rounded-2xl bg-cyan-50 p-5 text-slate-950">
                   <CalendarDays className="mb-4 h-6 w-6 text-cyan-600" />
-                  <p className="font-black">Typical launch</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">10 to 21 days for most business sites.</p>
+                  <p className="font-black">Fast launch</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">24 hours for basic sites when content is ready.</p>
                 </div>
               </div>
             </div>
