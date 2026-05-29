@@ -431,19 +431,21 @@ function getSlideOffset(index, activeIndex) {
 function ShowcasePreview({ project, activeProject, setProject, top = false }) {
 
   return (
-    <div className={`relative mx-[calc(50%-50vw)] min-h-[470px] overflow-hidden bg-[#dedfee] px-4 pb-10 sm:min-h-[620px] sm:pb-16 lg:min-h-[760px] lg:pb-20 ${top ? 'pt-24 sm:pt-28 lg:pt-32' : 'mt-8 pt-10 sm:mt-12 sm:pt-14'}`}>
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#5b5a84] to-transparent" />
-      <div className="relative z-30 mx-auto mb-5 max-w-4xl sm:mb-10">
-        <div className="flex items-center gap-2 rounded-full border-[4px] border-white bg-white p-2 shadow-[0_0_32px_rgba(34,211,238,0.55)] sm:gap-3 sm:border-[5px] sm:p-3">
-          <span className="min-w-0 flex-1 truncate px-3 text-xs font-semibold text-slate-700 sm:px-5 sm:text-base">Need a premium website for my business...</span>
-          <a href="#request-form" className="shrink-0 rounded-full bg-slate-950 px-4 py-2.5 text-xs font-black text-white sm:px-7 sm:py-3 sm:text-sm">Request Website</a>
-        </div>
-        <div className="mt-4 hidden flex-wrap justify-center gap-2 sm:flex">
-          {['Business website', 'Online store', 'Dashboard', 'Portfolio'].map((item) => (
-            <a key={item} href="#request-form" className="rounded-lg border border-white/15 bg-white/10 px-4 py-2 text-xs font-black text-white shadow-sm backdrop-blur">
-              {item} <span aria-hidden="true">-&gt;</span>
-            </a>
-          ))}
+    <div className={`relative mx-[calc(50%-50vw)] min-h-[600px] overflow-hidden bg-[#dfe1ff] px-4 pb-10 sm:min-h-[760px] sm:pb-16 lg:min-h-[880px] lg:pb-20 ${top ? 'pt-24 sm:pt-28 lg:pt-32' : 'mt-8 pt-10 sm:mt-12 sm:pt-14'}`}>
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#c7c8ff_0%,#e7e8ff_54%,#ffffff_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.72),transparent_45%)]" />
+      <div className="relative z-30 mx-auto max-w-7xl">
+        <div className="mx-auto mb-10 max-w-5xl text-center sm:mb-12">
+          <h2 className="mx-auto max-w-5xl text-4xl font-light leading-[1.05] tracking-tight text-[#11111a] sm:text-7xl lg:text-8xl">
+            A website builder for
+            <span className="block">scroll-stopping sites</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-base font-semibold leading-7 text-slate-950 sm:text-2xl">
+            Launch fast with Pageworks. Your 24-hour website, built by experts and owned by you.
+          </p>
+          <a href="#request-form" className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-black text-white shadow-xl shadow-violet-500/25 transition hover:-translate-y-1 hover:bg-violet-700">
+            Create a website <Sparkles className="h-4 w-4" />
+          </a>
         </div>
       </div>
       <div className="relative z-10 mx-auto h-[330px] max-w-[1180px] sm:h-[560px] lg:h-[760px]">
@@ -516,42 +518,40 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-          <a href="#home" className="flex items-center gap-3 text-white">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-cyan-300 to-lime-300 text-slate-950 shadow-lg shadow-cyan-400/20">
-              <Sparkles className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-black tracking-tight">NexaBuild AI</span>
+      <nav className="fixed inset-x-0 top-0 z-50 bg-[#c7c8ff]/90 backdrop-blur-2xl">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent,rgba(255,255,255,0.16))]" />
+        <div className="relative flex h-18 w-full items-center justify-between px-5 sm:h-20 lg:px-12">
+          <a href="#home" className="flex items-center gap-3 text-slate-950">
+            <span className="font-['Playfair_Display'] text-4xl font-semibold italic tracking-[-0.06em] text-violet-700">Pageworks</span>
           </a>
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-semibold text-white/70 transition hover:text-white">
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-semibold text-slate-950 transition hover:text-violet-700">
                 {item}
               </a>
             ))}
           </div>
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="#work" className="rounded-full px-5 py-3 text-sm font-bold text-white/75 transition hover:text-white">
+            <a href="#work" className="rounded-lg border border-slate-950/10 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-white/30">
               View Work
             </a>
-            <a href="#request-form" className="rounded-full bg-white px-5 py-3 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/10 transition hover:-translate-y-0.5 hover:bg-cyan-100">
+            <a href="#request-form" className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-black text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:bg-violet-700">
               Book Free Consultation
             </a>
           </div>
-          <button type="button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)} className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white lg:hidden">
+          <button type="button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)} className="grid h-11 w-11 place-items-center rounded-full border border-slate-950/15 bg-white/20 text-slate-950 lg:hidden">
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
         {menuOpen && (
-          <div className="border-t border-white/10 bg-slate-950 px-5 py-5 lg:hidden">
-            <div className="mx-auto grid max-w-7xl gap-2">
+          <div className="relative border-t border-slate-950/10 bg-[#c7c8ff] px-4 py-4 lg:hidden">
+            <div className="mx-auto grid max-w-7xl gap-2 rounded-3xl border border-slate-950/10 bg-white/25 p-2 backdrop-blur-xl">
               {navItems.map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-2xl px-4 py-3 font-semibold text-white/80 hover:bg-white/10">
+                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-2xl px-4 py-3 font-semibold text-slate-950/80 hover:bg-white/35">
                   {item}
                 </a>
               ))}
-              <a href="#request-form" onClick={() => setMenuOpen(false)} className="mt-2 rounded-full bg-cyan-300 px-5 py-3 text-center font-black text-slate-950">
+              <a href="#request-form" onClick={() => setMenuOpen(false)} className="mt-2 rounded-xl bg-violet-600 px-5 py-3 text-center font-black text-white">
                 Book Free Consultation
               </a>
             </div>
@@ -572,17 +572,20 @@ function App() {
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[11px] font-semibold text-cyan-100 backdrop-blur sm:mb-7 sm:px-4 sm:text-sm">
                 <Sparkles className="h-4 w-4 text-cyan-300" />
-                <span className="min-w-0 truncate">Basic simple websites can launch in 24 hours</span>
+                <span className="min-w-0 whitespace-normal">Basic simple websites can launch in 24 hours</span>
               </div>
               <h1 className="max-w-5xl text-3xl font-black leading-[1] tracking-tight sm:text-6xl lg:text-8xl">
                 Request a Premium Website. We Build It.
               </h1>
+              <p className="mt-3 inline-flex rounded-full bg-white px-3 py-1.5 text-xs font-black text-slate-950 shadow-lg shadow-cyan-400/10 sm:mt-5 sm:px-4 sm:py-2 sm:text-sm">
+                Pay once, Own forever
+              </p>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8 lg:text-xl">
                 Clients send their business requirements through WhatsApp or the request form. We design, develop, integrate, and launch professional websites, online stores, dashboards, portfolios, and web apps.
               </p>
               <div className="mt-4 inline-flex max-w-full items-center gap-2 rounded-2xl border border-lime-300/30 bg-lime-300/10 px-3 py-2.5 text-xs font-black text-lime-100 shadow-lg shadow-lime-300/10 sm:mt-5 sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
                 <Clock3 className="h-4 w-4 shrink-0 text-lime-300 sm:h-5 sm:w-5" />
-                <span className="min-w-0">24-hour launch for basic sites</span>
+                <span className="min-w-0 whitespace-normal">Basic simple websites can launch in 24 hours</span>
               </div>
               <div className="mt-4 grid max-w-2xl grid-cols-2 gap-2 sm:mt-6 sm:flex sm:flex-wrap sm:gap-3">
                 {[
@@ -914,15 +917,19 @@ function App() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-cyan-300 text-slate-950"><Sparkles className="h-5 w-5" /></span>
-              <span className="text-lg font-black">NexaBuild AI</span>
+              <span className="relative grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-cyan-200 via-white to-lime-200 text-slate-950">
+                <span className="font-['Playfair_Display'] text-[18px] font-semibold italic leading-none tracking-[-0.12em]">
+                  <span>P</span><span className="-ml-0.5">W</span>
+                </span>
+              </span>
+              <span className="text-lg font-black">Pageworks</span>
             </div>
             <p className="mt-5 max-w-sm leading-7 text-white/60">Website development and AI automation for ambitious small businesses.</p>
           </div>
           <div>
             <h3 className="font-black">Contact</h3>
             <div className="mt-4 space-y-2 text-white/65">
-              <p>hello@nexabuild.ai</p>
+              <p>support.pageworks@gmail.com</p>
               <p>{whatsappDisplayNumber}</p>
               <p>WhatsApp queries and project requests</p>
             </div>
@@ -939,7 +946,7 @@ function App() {
           </div>
         </div>
         <div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row">
-          <p>Copyright 2026 NexaBuild AI. All rights reserved.</p>
+          <p>Copyright 2026 Pageworks. All rights reserved.</p>
           <div className="flex gap-5">
             {navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-white">{item}</a>)}
           </div>
