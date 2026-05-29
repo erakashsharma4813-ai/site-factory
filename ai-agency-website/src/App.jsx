@@ -337,43 +337,43 @@ function RequestForm() {
   }
 
   return (
-    <form onSubmit={submitRequest} className="w-full min-w-0 max-w-full rounded-[1.5rem] border border-white/10 bg-white p-4 text-slate-950 shadow-2xl shadow-slate-950/20 sm:p-6">
-      <div className="mb-4 flex items-center gap-3">
-        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-500 text-white">
-          <MessageCircle className="h-5 w-5" />
+    <form onSubmit={submitRequest} className="w-full min-w-0 max-w-full rounded-[1.25rem] border border-white/10 bg-white p-3 text-slate-950 shadow-2xl shadow-slate-950/20 sm:rounded-[1.5rem] sm:p-6">
+      <div className="mb-3 flex items-center gap-3 sm:mb-4">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-emerald-500 text-white sm:h-11 sm:w-11">
+          <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
         </span>
         <div className="min-w-0">
-          <h3 className="text-lg font-black leading-tight sm:text-xl">Send request on WhatsApp</h3>
-          <p className="text-sm text-slate-500">Creates a ready-to-send message template.</p>
+          <h3 className="text-base font-black leading-tight sm:text-xl">Send request on WhatsApp</h3>
+          <p className="text-xs text-slate-500 sm:text-sm">Creates a ready-to-send message template.</p>
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-bold text-slate-700">
+      <div className="grid gap-2 sm:grid-cols-2 sm:gap-3">
+        <label className="grid gap-1.5 text-xs font-bold text-slate-700 sm:gap-2 sm:text-sm">
           Name
-          <input name="name" value={form.name} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Your name" />
+          <input name="name" value={form.name} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3" placeholder="Your name" />
         </label>
-        <label className="grid gap-2 text-sm font-bold text-slate-700">
+        <label className="grid gap-1.5 text-xs font-bold text-slate-700 sm:gap-2 sm:text-sm">
           Phone
-          <input name="phone" value={form.phone} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Your phone number" />
+          <input name="phone" value={form.phone} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3" placeholder="Your phone number" />
         </label>
       </div>
 
-      <label className="mt-3 grid gap-2 text-sm font-bold text-slate-700">
+      <label className="mt-2 grid gap-1.5 text-xs font-bold text-slate-700 sm:mt-3 sm:gap-2 sm:text-sm">
         Business Name
-        <input name="business" value={form.business} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Company, clinic, restaurant, or brand" />
+        <input name="business" value={form.business} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3" placeholder="Company, clinic, restaurant, or brand" />
       </label>
 
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-bold text-slate-700">
+      <div className="mt-2 grid gap-2 sm:mt-3 sm:grid-cols-2 sm:gap-3">
+        <label className="grid gap-1.5 text-xs font-bold text-slate-700 sm:gap-2 sm:text-sm">
           Service
-          <select name="service" value={form.service} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+          <select name="service" value={form.service} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3">
             {services.map((service) => <option key={service.title}>{service.title}</option>)}
           </select>
         </label>
-        <label className="grid gap-2 text-sm font-bold text-slate-700">
+        <label className="grid gap-1.5 text-xs font-bold text-slate-700 sm:gap-2 sm:text-sm">
           Budget
-          <select name="budget" value={form.budget} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+          <select name="budget" value={form.budget} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3">
             <option>₹15k - ₹30k</option>
             <option>₹30k - ₹60k</option>
             <option>₹60k - ₹1L</option>
@@ -382,9 +382,9 @@ function RequestForm() {
         </label>
       </div>
 
-      <label className="mt-3 grid gap-2 text-sm font-bold text-slate-700">
+      <label className="mt-2 grid gap-1.5 text-xs font-bold text-slate-700 sm:mt-3 sm:gap-2 sm:text-sm">
         Timeline
-        <select name="timeline" value={form.timeline} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white">
+        <select name="timeline" value={form.timeline} onChange={updateForm} className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3">
           <option>24-hour basic website</option>
           <option>Within 2 weeks</option>
           <option>Within 1 month</option>
@@ -393,12 +393,12 @@ function RequestForm() {
         </select>
       </label>
 
-      <label className="mt-3 grid gap-2 text-sm font-bold text-slate-700">
+      <label className="mt-2 grid gap-1.5 text-xs font-bold text-slate-700 sm:mt-3 sm:gap-2 sm:text-sm">
         Project Details
-        <textarea name="message" value={form.message} onChange={updateForm} rows="3" className="w-full min-w-0 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-cyan-400 focus:bg-white" placeholder="Tell us what you want to build..." />
+        <textarea name="message" value={form.message} onChange={updateForm} rows="2" className="w-full min-w-0 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none transition focus:border-cyan-400 focus:bg-white sm:py-3" placeholder="Tell us what you want to build..." />
       </label>
 
-      <button type="submit" className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 font-black text-white shadow-xl shadow-emerald-600/20 transition hover:-translate-y-1 hover:bg-emerald-600 sm:py-4">
+      <button type="submit" className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 font-black text-white shadow-xl shadow-emerald-600/20 transition hover:-translate-y-1 hover:bg-emerald-600 sm:mt-4 sm:py-4">
         Open WhatsApp Request <MessageCircle className="h-5 w-5" />
       </button>
     </form>
@@ -562,29 +562,29 @@ function App() {
       <main>
         <BuiltProjectsShowcase />
 
-        <section id="home" className="relative overflow-hidden bg-slate-950 pt-24 text-white sm:pt-32 lg:pt-36">
+        <section id="home" className="relative overflow-hidden bg-slate-950 pt-20 text-white sm:pt-32 lg:pt-36">
           <div className="pointer-events-none absolute inset-0 opacity-60">
             <div className="absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
             <div className="absolute -right-28 bottom-20 h-80 w-80 rounded-full bg-fuchsia-400/20 blur-3xl" />
             <div className="hero-grid absolute inset-0" />
           </div>
-          <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 pb-14 sm:gap-12 sm:pb-20 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14 lg:px-8 lg:pb-28">
+          <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-5 pb-10 sm:gap-12 sm:pb-20 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14 lg:px-8 lg:pb-28">
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-cyan-100 backdrop-blur sm:mb-7 sm:text-sm">
+              <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[11px] font-semibold text-cyan-100 backdrop-blur sm:mb-7 sm:px-4 sm:text-sm">
                 <Sparkles className="h-4 w-4 text-cyan-300" />
-                Basic simple websites can launch in 24 hours
+                <span className="min-w-0 truncate">Basic simple websites can launch in 24 hours</span>
               </div>
-              <h1 className="max-w-5xl text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl">
+              <h1 className="max-w-5xl text-3xl font-black leading-[1] tracking-tight sm:text-6xl lg:text-8xl">
                 Request a Premium Website. We Build It.
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8 lg:text-xl">
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8 lg:text-xl">
                 Clients send their business requirements through WhatsApp or the request form. We design, develop, integrate, and launch professional websites, online stores, dashboards, portfolios, and web apps.
               </p>
-              <div className="mt-5 inline-flex items-center gap-3 rounded-2xl border border-lime-300/30 bg-lime-300/10 px-4 py-3 text-sm font-black text-lime-100 shadow-lg shadow-lime-300/10">
-                <Clock3 className="h-5 w-5 text-lime-300" />
-                24-hour launch available for basic websites when content is ready
+              <div className="mt-4 inline-flex max-w-full items-center gap-2 rounded-2xl border border-lime-300/30 bg-lime-300/10 px-3 py-2.5 text-xs font-black text-lime-100 shadow-lg shadow-lime-300/10 sm:mt-5 sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
+                <Clock3 className="h-4 w-4 shrink-0 text-lime-300 sm:h-5 sm:w-5" />
+                <span className="min-w-0">24-hour launch for basic sites</span>
               </div>
-              <div className="mt-5 flex max-w-2xl gap-2 overflow-x-auto pb-1 sm:mt-6 sm:flex-wrap sm:gap-3 sm:overflow-visible">
+              <div className="mt-4 grid max-w-2xl grid-cols-2 gap-2 sm:mt-6 sm:flex sm:flex-wrap sm:gap-3">
                 {[
                   ['Rebuild my site', Globe2],
                   ['Build an online store', ShoppingCart],
@@ -592,20 +592,20 @@ function App() {
                   ['Book a launch call', CalendarDays],
                   ['Local business website', Building2],
                 ].map(([label, Icon]) => (
-                  <a key={label} href="#request-form" className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-xs font-bold text-white/75 backdrop-blur transition hover:border-cyan-300/50 hover:text-white sm:text-sm">
+                  <a key={label} href="#request-form" className="inline-flex min-w-0 items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-2 text-[11px] font-bold text-white/75 backdrop-blur transition hover:border-cyan-300/50 hover:text-white sm:px-4 sm:text-sm">
                     <Icon className="h-4 w-4 text-cyan-300" />
-                    {label}
+                    <span className="truncate">{label}</span>
                   </a>
                 ))}
               </div>
-              <div className="mt-7 grid max-w-xl grid-cols-3 gap-3 sm:mt-10 sm:gap-4">
+              <div className="mt-5 grid max-w-xl grid-cols-3 gap-2 sm:mt-10 sm:gap-4">
                 {[
                   [24, 'h', 'Basic website option'],
                   [98, '%', 'Client satisfaction'],
                   [35, '%', 'Avg. lead lift'],
                 ].map(([value, suffix, label]) => (
-                  <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-3 backdrop-blur sm:p-4">
-                    <p className="text-xl font-black text-white sm:text-3xl"><AnimatedCounter value={value} suffix={suffix} /></p>
+                  <div key={label} className="rounded-2xl border border-white/10 bg-white/8 p-2.5 backdrop-blur sm:p-4">
+                    <p className="text-lg font-black text-white sm:text-3xl"><AnimatedCounter value={value} suffix={suffix} /></p>
                     <p className="mt-1 text-xs font-medium leading-5 text-white/60">{label}</p>
                   </div>
                 ))}
