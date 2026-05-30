@@ -38,6 +38,7 @@ Collect only verified information:
 * Operating hours
 * Review themes and patient sentiment
 * Clinic positioning (doctor-led, family-oriented, cosmetic-focused, etc.)
+* Verified social media links, including Instagram, Facebook, YouTube, LinkedIn, or other clinic-owned profiles
 * Missing or unavailable information
 
 ## Website Category Decision
@@ -74,6 +75,13 @@ Decide which website category best fits the clinic.
 * Aesthetic/result-focused positioning
 * Editorial/luxury presentation style
 
+5. Premium/Proof or Premium/Legacy
+
+* Very high public review volume, usually 500+ reviews, especially with 4.8+ rating
+* Long-established clinic or exceptional public proof even if the clinic is not cosmetic
+* Premium presentation should be driven by rating volume, longevity, accessibility, and patient confidence
+* Use the premium website structure when the review proof is a major differentiator, but keep the copy factual and avoid cosmetic claims unless those are verified
+
 ## Important Rules
 
 * Do not invent facts.
@@ -83,6 +91,9 @@ Decide which website category best fits the clinic.
 * Do not use placeholders in recommendations.
 * Keep locality references limited to contact/address sections where appropriate.
 * The website should feel suitable for city-level reach, not only nearby local traffic.
+* Treat large review volume as a premium signal. A family or Neighborhood+ clinic with around 500+ reviews and a strong rating can be recommended for a premium-style website even if it is not cosmetic.
+* Before recommending WhatsApp CTAs, check whether the supplied phone number is a valid Indian mobile-format number. Indian landlines such as numbers beginning with city STD codes like 0731 should use call CTAs and prepared/copyable message text instead of direct wa.me links unless a separate verified WhatsApp number is available.
+* If any verified clinic-owned social media profile exists, mention it in the research output and recommend adding it to the website. Do not include unofficial directories, repost accounts, or unverified profiles as social links.
 
 ## Return Output EXACTLY In This Format
 

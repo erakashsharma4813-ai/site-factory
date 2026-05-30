@@ -22,13 +22,15 @@ Neighborhood+ rules:
 - Warm, doctor-led, polished, but not premium/cosmetic.
 - City-level reach. Do not repeat one locality throughout the website.
 - The site should build patient confidence through clear content, not by repeatedly saying "trust".
-- WhatsApp is for patient questions.
+- WhatsApp is for patient questions only when a valid mobile-format WhatsApp number is available.
+- If the supplied number is a landline or not clearly mobile-format, use call CTAs and copyable/prepared message text instead of direct `wa.me` links.
 - Appointment booking is a secondary path with a calendar/date input, time slots, concern select, and a predefined WhatsApp message.
 - Call is clearly available for urgent pain, swelling, or immediate concerns.
 - Use modest dental imagery only. Healthy teeth, dental chair, consultation, X ray discussion, treatment explanation.
 - Avoid uncomfortable close-up mouth procedure photos.
 - Do not reuse the same image in hero and lower sections.
 - Treatment cards should use clean icons or icon panels, not repeated photos.
+- Verified clinic-owned social media links are essential. If Instagram, Facebook, YouTube, LinkedIn, or another real clinic social profile is provided or verified, include it visibly in the website.
 - Mobile must not overlap.
 - Sticky bottom WhatsApp and Call bar must show a visible WhatsApp icon.
 
@@ -37,9 +39,10 @@ Facts:
 - If a fact is missing, do not add a placeholder.
 - Write the sentence so the missing fact is not required.
 - If review names are unavailable, use patient-style testimonial labels only when supported by review context, or use anonymous feedback wording.
+- If a verified social media profile exists, include the real URL and platform name. Do not invent social links or use unverified directory/profile links.
 
 Required sections:
-1. Header.
+1. Header with clinic branding, appointment CTA, and verified social link if available.
 2. Hero with clinic positioning, rating if known, WhatsApp query CTA, Plan a Visit CTA, and dental visual collage.
 3. Reviews or patient voices near the top.
 4. About the doctor.
@@ -47,7 +50,7 @@ Required sections:
 6. Questions are welcome section.
 7. Before Treatment Starts section.
 8. Appointment request section.
-9. Contact, phone, hours, map.
+9. Contact, phone, hours, map, and verified social links if available.
 10. Mobile sticky WhatsApp and Call bar.
 11. Desktop floating WhatsApp bubble.
 
@@ -68,6 +71,9 @@ Copy rules:
   - WhatsApp the Clinic
   - Send Appointment Request
   - Call the Clinic
+  - View Instagram Updates
+  - View Facebook Page
+  - Watch Clinic Videos
 
 Output:
 - Create or update only the target clinic `index.html`.
